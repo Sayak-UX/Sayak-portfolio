@@ -1,0 +1,194 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    mix-blend-mode: difference;
+    color: #fff;
+}
+
+.navbar.scrolled {
+    padding: 1rem 0;
+    background-color: rgba(246, 243, 238, 0.05);
+    backdrop-filter: blur(10px);
+    mix-blend-mode: normal;
+    color: var(--text-main);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* When menu is open, disable difference mode and ensure visibility */
+.navbar.menu-open {
+    mix-blend-mode: normal;
+    background-color: transparent;
+    /* The links container will handle background */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+    /* Default: Invert to White because Navbar is in difference mode */
+    filter: invert(1);
+    transition: filter 0.3s ease;
+}
+
+/* When scrolled (Normal Mode) */
+/* Light Mode: Logo needs to be Black (Original) */
+[data-theme='light'] .navbar.scrolled .navbar-logo img {
+    filter: invert(0);
+}
+
+/* Dark Mode: Logo needs to be White (Inverted) */
+[data-theme='dark'] .navbar.scrolled .navbar-logo img {
+    filter: invert(1);
+}
+
+/* When menu is open (Normal Mode) */
+[data-theme='light'] .navbar.menu-open .navbar-logo img {
+    filter: invert(0);
+}
+
+[data-theme='dark'] .navbar.menu-open .navbar-logo img {
+    filter: invert(1);
+}
+
+/* Desktop Styles */
+.navbar-links {
+    display: flex;
+    flex-direction: row;
+    /* Explicitly set row for desktop */
+    gap: 2.5rem;
+    align-items: center;
+    position: static;
+    /* Ensure static positioning for desktop */
+    height: auto;
+    width: auto;
+    background-color: transparent;
+}
+
+.navbar-links button {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: inherit;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s ease;
+    position: relative;
+}
+
+.navbar-links button::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.navbar-links button:hover::after {
+    width: 100%;
+}
+
+.btn-download-cv {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-download-cv:hover {
+    background-color: #fff;
+    color: #000;
+    opacity: 1;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle::after {
+    display: none !important;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 25px;
+    height: 2px;
+    background-color: currentColor;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-color);
+        /* Ensure background is solid */
+        color: var(--text-main);
+        flex-direction: column;
+        justify-content: center;
+        transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        mix-blend-mode: normal;
+        z-index: 1000;
+        /* Ensure it's on top */
+    }
+
+    .navbar-links.active {
+        right: 0;
+    }
+
+    .navbar.scrolled .navbar-links {
+        background-color: var(--bg-color);
+    }
+}

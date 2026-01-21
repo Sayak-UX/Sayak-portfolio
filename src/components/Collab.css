@@ -1,0 +1,29 @@
+.collab-section {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 10rem 0;
+}
+
+.collab-title {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 3rem;
+    opacity: 0.7;
+}
+
+.collab-cta {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.collab-cta:hover {
+    border-color: var(--bg-color);
+    opacity: 1;
+}

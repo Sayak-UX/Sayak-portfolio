@@ -1,0 +1,103 @@
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    /* Ensure container doesn't collapse */
+}
+
+.about-blur-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: 0;
+    /* Spacing handled by spacer divs */
+}
+
+.about-visual {
+    position: relative;
+    width: 100%;
+    /* Removed fixed aspect ratio to let image define it, or keep it if consistent size is needed */
+    /* aspect-ratio: 4/5; */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-frame {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+}
+
+/* New Project Showcase Styles */
+.mobile-apps-header {
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    text-align: left;
+    /* Or center, depending on preference. Left aligns with grid usually. */
+}
+
+.mobile-apps-header .section-title {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 0;
+}
+
+.about-projects {
+    /* margin-top: 6rem; Remove this as header handles spacing now */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.project-showcase {
+    width: 100%;
+    overflow: hidden;
+    /* Optional: Add hover effect or transition */
+    transition: transform 0.3s ease;
+}
+
+.project-showcase:hover {
+    transform: translateY(-5px);
+}
+
+.showcase-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    /* Ensure sharp corners as requested */
+    border-radius: 0;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-projects {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .mobile-apps-header {
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+    }
+}

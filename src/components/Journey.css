@@ -1,0 +1,75 @@
+.section-title-wrapper {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    color: var(--text-main);
+    display: inline-block;
+    /* Important for BlurText to center properly if needed */
+}
+
+.journey-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: 1px solid var(--clay);
+    padding-left: 2rem;
+}
+
+.journey-item {
+    margin-bottom: 4rem;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.journey-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.journey-item::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    background-color: var(--text-main);
+    border-radius: 50%;
+}
+
+.journey-year {
+    margin-bottom: 0.5rem;
+}
+
+.journey-year-text {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+.journey-content h3 {
+    margin-bottom: 1rem;
+}
+
+.journey-title-text {
+    font-size: 1.8rem;
+    font-family: var(--font-display);
+    color: var(--text-main);
+}
+
+.journey-desc {
+    /* Wrapper for p text */
+}
+
+.journey-p-text {
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
