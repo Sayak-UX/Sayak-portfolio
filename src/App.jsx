@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import './App.css';
+import ChatButton from './components/ChatButton';
 
 const About = lazy(() => import('./components/About'));
 const Works = lazy(() => import('./components/Works'));
@@ -66,6 +67,7 @@ function App() {
         <Router>
             <div className="App">
                 <CustomCursor />
+                <ChatButton />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/project/music" element={

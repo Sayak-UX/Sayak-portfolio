@@ -11,8 +11,8 @@
 .banner-content {
     position: relative;
     padding: 10px 20px;
-    background: #ff0000;
-    /* YouTube red-ish */
+    background: #2ecc71;
+    /* Green */
     color: white;
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
@@ -22,14 +22,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .banner-content:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
 }
 
 .banner-text {

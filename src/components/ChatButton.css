@@ -1,0 +1,41 @@
+.chat-button-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.chat-button-container.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.chat-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #2ecc71;
+    /* Green to match the banner */
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+}
+
+.chat-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.6);
+}
+
+/* Dark mode adjustment if needed */
+[data-theme='dark'] .chat-button {
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+}
