@@ -71,17 +71,17 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/project/music" element={
-                        <PasswordProtection requiredPassword="Sayak1" projectId="music">
+                        <PasswordProtection requiredPassword="password123" projectId="music">
                             <MusicProjectPage />
                         </PasswordProtection>
                     } />
                     <Route path="/project/banking" element={
-                        <PasswordProtection requiredPassword="Sayak2" projectId="banking">
+                        <PasswordProtection requiredPassword="password123" projectId="banking">
                             <BankingProjectPage />
                         </PasswordProtection>
                     } />
                     <Route path="/project/air-india" element={
-                        <PasswordProtection requiredPassword="Sayak3" projectId="airindia">
+                        <PasswordProtection requiredPassword="password123" projectId="airindia">
                             <AirIndiaProjectPage />
                         </PasswordProtection>
                     } />
