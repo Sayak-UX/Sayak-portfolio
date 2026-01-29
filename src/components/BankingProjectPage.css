@@ -4,8 +4,6 @@
     background-color: var(--bg-color);
     position: relative;
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
 }
 
 .back-button {
@@ -33,16 +31,14 @@
 .image-container {
     width: 100%;
     height: auto;
-    margin: 0;
-    padding: 0;
-    display: block;
-    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .full-width-image {
     width: 100%;
-    min-height: 100vh;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }

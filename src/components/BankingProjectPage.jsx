@@ -14,7 +14,7 @@ const BankingProjectPage = () => {
             </Link>
             <div className="image-container">
                 <img
-                    src="/assets/combined_mobile_app.svg"
+                    src="/assets/project_mobile_bank_app_bg.svg"
                     alt="Mobile Bank App Project"
                     className="full-width-image"
                 />

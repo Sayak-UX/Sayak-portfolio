@@ -8,9 +8,10 @@ const Works = () => {
             id: 1,
             title: 'Mobile Bank App',
             category: 'UI Exploration',
-            image: '/assets/mobile app project1.svg',
+            image: '/assets/mobile_app_project1.svg',
             link: '/project/banking'
         },
+
         {
             id: 2,
             title: 'Air India Redesign',

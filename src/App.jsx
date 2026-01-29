@@ -82,11 +82,7 @@ function App() {
                             <WebsiteProject1Page />
                         </PasswordProtection>
                     } />
-                    <Route path="/project/website2" element={
-                        <PasswordProtection requiredPassword="Public03" projectId="solar_project">
-                            <WebsiteProject2Page />
-                        </PasswordProtection>
-                    } />
+                    <Route path="/project/website2" element={<WebsiteProject2Page />} />
 
                 </Routes>
             </div>

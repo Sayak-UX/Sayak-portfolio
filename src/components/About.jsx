@@ -75,8 +75,9 @@ const About = () => {
                     <img src="/assets/mobile app project3.svg" alt="Mobile App Project 3" className="showcase-image" loading="lazy" />
                 </Link>
                 <Link to="/project/banking" className="project-showcase" style={{ display: 'block' }}>
-                    <img src="/assets/mobile app project1.svg" alt="Mobile App Project 1" className="showcase-image" loading="lazy" />
+                    <img src="/assets/mobile_app_project1.svg" alt="Mobile App Project 1" className="showcase-image" loading="lazy" />
                 </Link>
+
             </div>
 
             <div className="container mobile-apps-header">
