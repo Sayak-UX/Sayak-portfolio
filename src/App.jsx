@@ -70,23 +70,24 @@ function App() {
                 <ChatButton />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/project/music" element={
-                        <PasswordProtection requiredPassword="password123" projectId="music">
-                            <MusicProjectPage />
-                        </PasswordProtection>
-                    } />
-                    <Route path="/project/banking" element={
-                        <PasswordProtection requiredPassword="password123" projectId="banking">
-                            <BankingProjectPage />
-                        </PasswordProtection>
-                    } />
+                    <Route path="/project/music" element={<MusicProjectPage />} />
+                    <Route path="/project/banking" element={<BankingProjectPage />} />
                     <Route path="/project/air-india" element={
-                        <PasswordProtection requiredPassword="password123" projectId="airindia">
+                        <PasswordProtection requiredPassword="Public03" projectId="airindia">
                             <AirIndiaProjectPage />
                         </PasswordProtection>
                     } />
-                    <Route path="/project/website1" element={<WebsiteProject1Page />} />
-                    <Route path="/project/website2" element={<WebsiteProject2Page />} />
+                    <Route path="/project/website1" element={
+                        <PasswordProtection requiredPassword="Public03" projectId="website1">
+                            <WebsiteProject1Page />
+                        </PasswordProtection>
+                    } />
+                    <Route path="/project/website2" element={
+                        <PasswordProtection requiredPassword="Public03" projectId="solar_project">
+                            <WebsiteProject2Page />
+                        </PasswordProtection>
+                    } />
+
                 </Routes>
             </div>
         </Router>

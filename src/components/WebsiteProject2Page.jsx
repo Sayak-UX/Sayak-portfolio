@@ -14,10 +14,12 @@ const WebsiteProject2Page = () => {
             </Link>
             <div className="image-container">
                 <img
-                    src="/assets/website project 2.svg"
+                    src="/assets/website_project_2_combined.svg"
                     alt="Website Project 2"
                     className="full-width-image"
                 />
+
+
             </div>
         </div>
     );

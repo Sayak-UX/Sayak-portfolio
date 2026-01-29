@@ -41,7 +41,7 @@
 
 .hero-role {
     font-family: var(--font-body);
-    font-size: 1.1rem;
+    font-size: calc(1.1rem + 2px);
     color: var(--text-muted);
     margin-top: 2rem;
 }

@@ -21,7 +21,7 @@ const ChatButton = () => {
 
     return (
         <div className={`chat-button-container ${isVisible ? 'visible' : ''}`}>
-            <a href="mailto:hello@sayak.design" className="chat-button" aria-label="Chat with me">
+            <a href="mailto:sayak.uxartisty@gmail.com" className="chat-button" aria-label="Chat with me">
                 <MessageCircle size={24} color="white" />
             </a>
         </div>

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import BlurText from './BlurText';
+import { SiFigma, SiAdobexd, SiSketch } from 'react-icons/si';
+import { BsStars } from 'react-icons/bs';
 import './Journey.css';
 
 const Journey = () => {
@@ -66,10 +68,16 @@ const Journey = () => {
                             </h3>
                             <div className="journey-desc">
                                 <BlurText
-                                    text="From analysing the website to developing packaging concepts, I enhanced my creative and analytical skills."
+                                    text="From website analysis to user-centered design, I sharpened my creative and analytical skills using Figma, Adobe XD, Sketch, and AI tools like Uizard and Galileo AI."
                                     delay={20}
                                     className="journey-p-text"
                                 />
+                                <div className="journey-tools">
+                                    <SiFigma className="tool-icon" title="Figma" />
+                                    <SiAdobexd className="tool-icon" title="Adobe XD" />
+                                    <SiSketch className="tool-icon" title="Sketch" />
+                                    <BsStars className="tool-icon" title="AI Tools (Uizard, Galileo AI)" />
+                                </div>
                             </div>
                         </div>
                     </div>

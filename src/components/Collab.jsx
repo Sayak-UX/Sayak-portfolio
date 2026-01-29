@@ -10,7 +10,7 @@ const Collab = () => {
                 <div className="collab-content">
                     <Banner />
                     <h2 className="collab-title">Collab / Proposal</h2>
-                    <a href="mailto:hello@sayak.design" className="collab-cta">
+                    <a href="mailto:sayak.uxartisty@gmail.com" className="collab-cta">
                         Let's Create Something
                     </a>
                 </div>

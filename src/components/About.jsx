@@ -39,7 +39,7 @@ const About = () => {
                     />
                     <div style={{ height: '2rem' }}></div>
                     <BlurText
-                        text="In 2024, I began my Master’s in User Experience Design journey. I’m on track to complete my degree in 2026."
+                        text="In 2024, I started my Master’s in User Experience Design at Lovely Professional University, and I am currently on track to complete the program in 2026."
                         delay={50}
                         animateBy="words"
                         direction="top"
@@ -93,8 +93,9 @@ const About = () => {
                     <img src="/assets/website background 1.svg" alt="Govt Website Redesign" className="showcase-image" loading="lazy" />
                 </Link>
                 <Link to="/project/website2" className="project-showcase" style={{ display: 'block' }}>
-                    <img src="/assets/website background 2.svg" alt="Solar Service Website Design" className="showcase-image" loading="lazy" />
+                    <img src="/assets/website back solar.svg" alt="Website Project 2" className="showcase-image" loading="lazy" />
                 </Link>
+
             </div>
         </section>
     );

@@ -19,7 +19,7 @@ const ArtLens = () => {
             <div className="art-container">
                 <div className="art-header">
                     <h2 className="section-title">
-                        <BlurText text="Art & Lens" delay={50} animateBy="words" />
+                        <BlurText text="Art & Lens" delay={50} animateBy="words" tagName="span" />
                     </h2>
                     <p className="art-tagline">
                         Exploring the world through creativity and photography.

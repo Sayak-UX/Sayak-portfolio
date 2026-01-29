@@ -73,3 +73,21 @@
     font-size: 1.1rem;
     line-height: 1.6;
 }
+
+.journey-tools {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.tool-icon {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.tool-icon:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}

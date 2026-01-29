@@ -36,9 +36,10 @@ const Works = () => {
             id: 5,
             title: 'Website Project 2',
             category: 'Web Design',
-            image: '/assets/website background 2.svg',
+            image: '/assets/website back solar.svg',
             link: '/project/website2'
         },
+
     ];
 
     const renderProjectCard = (project) => (
