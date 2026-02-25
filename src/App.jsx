@@ -5,6 +5,7 @@ import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import './App.css';
 import ChatButton from './components/ChatButton';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const About = lazy(() => import('./components/About'));
 const Works = lazy(() => import('./components/Works'));
@@ -85,6 +86,7 @@ function App() {
                     <Route path="/project/website2" element={<WebsiteProject2Page />} />
 
                 </Routes>
+                <SpeedInsights />
             </div>
         </Router>
     );
