@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './BankingProjectPage.css';
+import PageLoader from './PageLoader';
 
 const BankingProjectPage = () => {
     useEffect(() => {
@@ -9,6 +10,7 @@ const BankingProjectPage = () => {
 
     return (
         <div className="banking-project-page">
+            <PageLoader title="Mobile Bank App" category="UI Exploration" />
             <Link to="/" className="back-button">
                 ← Back to Home
             </Link>

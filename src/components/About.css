@@ -68,12 +68,13 @@
 .project-showcase {
     width: 100%;
     overflow: hidden;
-    /* Optional: Add hover effect or transition */
-    transition: transform 0.3s ease;
+    border-radius: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-showcase:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
 }
 
 .showcase-image {
@@ -81,8 +82,7 @@
     height: auto;
     display: block;
     object-fit: cover;
-    /* Ensure sharp corners as requested */
-    border-radius: 0;
+    border-radius: 24px;
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './WebsiteProject1Page.css';
+import PageLoader from './PageLoader';
 
 const WebsiteProject1Page = () => {
     useEffect(() => {
@@ -9,6 +10,7 @@ const WebsiteProject1Page = () => {
 
     return (
         <div className="website-project1-page">
+            <PageLoader title="Website Project 1" category="Web Design" />
             <Link to="/" className="back-button">
                 ← Back to Home
             </Link>

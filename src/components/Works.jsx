@@ -8,14 +8,17 @@ const Works = () => {
             id: 1,
             title: 'Mobile Bank App',
             category: 'UI Exploration',
+            tags: 'UX Design · Fintech',
+            year: '2025',
             image: '/assets/mobile_app_project1.svg',
             link: '/project/banking'
         },
-
         {
             id: 2,
-            title: 'Air India Redesign',
-            category: 'Concept',
+            title: 'Air India Application Redesign',
+            category: 'Mobile Redesign Concept',
+            tags: 'UX Audit · Redesign',
+            year: '2025',
             image: '/assets/mobile app project2.svg',
             link: '/project/air-india'
         },
@@ -23,13 +26,17 @@ const Works = () => {
             id: 3,
             title: 'Music Application',
             category: 'Case Study',
+            tags: 'UI Design · Research',
+            year: '2025',
             image: '/assets/mobile app project3.svg',
             link: '/project/music'
         },
         {
             id: 4,
-            title: 'Website Project 1',
-            category: 'Web Design',
+            title: 'Govt Portal Website Redesign',
+            category: 'Web Redesign Case Study',
+            tags: 'Accessibility · Heuristics',
+            year: '2025',
             image: '/assets/website background 1.svg',
             link: '/project/website1'
         },
@@ -37,23 +44,43 @@ const Works = () => {
             id: 5,
             title: 'Website Project 2',
             category: 'Web Design',
+            tags: 'Visual Design · Branding',
+            year: '2025',
             image: '/assets/website back solar.svg',
             link: '/project/website2'
         },
-
     ];
 
     const renderProjectCard = (project) => (
         <>
-            <img
-                src={project.image}
-                alt={project.title}
-                className="work-image"
-                loading="lazy"
-            />
+            {/* Image area with year badge + hover overlay */}
+            <div className="work-image-wrap">
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    className="work-image"
+                    loading="lazy"
+                />
+                {project.year && (
+                    <span className="work-year-badge">{project.year}</span>
+                )}
+                {/* Hover overlay */}
+                <div className="work-hover-overlay">
+                    <span className="work-hover-cta">
+                        VIEW CASE STUDY&nbsp;→
+                    </span>
+                </div>
+            </div>
+
+            {/* Info footer */}
             <div className="work-info">
-                <h3>{project.title}</h3>
-                <span>{project.category}</span>
+                <div className="work-info-row">
+                    <span className="work-info-category">{project.category}</span>
+                    {project.tags && (
+                        <span className="work-info-tags">{project.tags}</span>
+                    )}
+                </div>
+                <h3 className="work-info-title">{project.title}</h3>
             </div>
         </>
     );
@@ -64,11 +91,11 @@ const Works = () => {
                 <h2 className="section-title container">Selected Works</h2>
                 <div className="works-carousel">
                     <div className="works-track">
-                        {/* First set of projects */}
+                        {/* First set */}
                         {projects.map((project) => (
                             <div key={`a-${project.id}`} className="work-card">
                                 {project.link ? (
-                                    <Link to={project.link} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    <Link to={project.link} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                                         {renderProjectCard(project)}
                                     </Link>
                                 ) : (
@@ -76,11 +103,11 @@ const Works = () => {
                                 )}
                             </div>
                         ))}
-                        {/* Duplicate set for infinite scroll */}
+                        {/* Duplicate for infinite scroll */}
                         {projects.map((project) => (
                             <div key={`b-${project.id}`} className="work-card">
                                 {project.link ? (
-                                    <Link to={project.link} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    <Link to={project.link} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                                         {renderProjectCard(project)}
                                     </Link>
                                 ) : (

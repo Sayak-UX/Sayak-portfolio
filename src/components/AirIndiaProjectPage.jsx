@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './AirIndiaProjectPage.css';
+import PageLoader from './PageLoader';
 
 const AirIndiaProjectPage = () => {
     useEffect(() => {
@@ -9,6 +10,7 @@ const AirIndiaProjectPage = () => {
 
     return (
         <div className="air-india-project-page">
+            <PageLoader title="Air India Redesign" category="Concept" />
             <Link to="/" className="back-button">
                 ← Back to Home
             </Link>
