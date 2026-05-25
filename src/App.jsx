@@ -12,7 +12,6 @@ const ArtLens = lazy(() => import('./components/ArtLens'));
 const Journey = lazy(() => import('./components/Journey'));
 const Collab = lazy(() => import('./components/Collab'));
 const Footer = lazy(() => import('./components/Footer'));
-import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MusicProjectPage from './components/MusicProjectPage';
@@ -48,20 +47,6 @@ function App() {
         };
     }, []);
 
-    const Home = () => (
-        <>
-            <Navbar />
-            <Hero />
-            <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
-                <About />
-                <Works />
-                <ArtLens />
-                <Journey />
-                <Collab />
-                <Footer />
-            </Suspense>
-        </>
-    );
 
     return (
         <Router>
@@ -89,5 +74,20 @@ function App() {
         </Router>
     );
 }
+
+const Home = () => (
+    <>
+        <Navbar />
+        <Hero />
+        <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
+            <About />
+            <Works />
+            <ArtLens />
+            <Journey />
+            <Collab />
+            <Footer />
+        </Suspense>
+    </>
+);
 
 export default App;

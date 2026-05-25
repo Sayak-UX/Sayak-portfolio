@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -43,11 +44,33 @@ const Navbar = () => {
         setMenuOpen(!menuOpen);
     };
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // After navigating home, scroll to the pending section (stored in sessionStorage)
+    useEffect(() => {
+        if (location.pathname === '/') {
+            const pending = sessionStorage.getItem('scrollTo');
+            if (pending) {
+                sessionStorage.removeItem('scrollTo');
+                setTimeout(() => {
+                    const element = document.getElementById(pending);
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }, [location]);
+
     const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setMenuOpen(false);
+        setMenuOpen(false);
+        if (location.pathname === '/') {
+            // Already on home — just scroll
+            const element = document.getElementById(id);
+            if (element) element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // On a sub-route — navigate home first, then scroll
+            sessionStorage.setItem('scrollTo', id);
+            navigate('/');
         }
     };
 

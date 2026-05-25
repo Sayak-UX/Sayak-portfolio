@@ -80,7 +80,7 @@ void main() {
   fragColor = vec4(finalColor, alpha);
 }`;
 
-export const Plasma = ({
+const Plasma = ({
     color = '#ffffff',
     speed = 1,
     direction = 'forward',

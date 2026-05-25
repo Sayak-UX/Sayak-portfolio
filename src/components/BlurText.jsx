@@ -32,16 +32,17 @@ const BlurText = ({
 
     useEffect(() => {
         if (!ref.current) return;
+        const el = ref.current;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setInView(true);
-                    observer.unobserve(ref.current);
+                    observer.unobserve(el);
                 }
             },
             { threshold, rootMargin }
         );
-        observer.observe(ref.current);
+        observer.observe(el);
         return () => observer.disconnect();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [threshold, rootMargin]);

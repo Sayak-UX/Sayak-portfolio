@@ -9,7 +9,7 @@ const ArtLens = () => {
         { id: 3, src: '/assets/photography/gallery-3.jpeg', title: 'Silent Light' },
         { id: 4, src: '/assets/photography/gallery-4.jpeg', title: 'Composition IV' },
         { id: 5, src: '/assets/photography/gallery-5.jpeg', title: 'Shadow Play' },
-        { id: 6, src: '/assets/photography/gallery-6.jpeg', title: 'Nature’s Form' },
+        { id: 6, src: '/assets/photography/gallery-6.jpeg', title: "Nature's Form" },
         { id: 7, src: '/assets/photography/gallery-7.jpeg', title: 'Abstract View' },
         { id: 8, src: '/assets/photography/gallery-8.jpeg', title: 'Final Frame' },
     ];

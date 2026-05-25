@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './PasswordProtection.css';
 
 const PasswordProtection = ({ children, requiredPassword, projectId }) => {
@@ -46,7 +47,7 @@ const PasswordProtection = ({ children, requiredPassword, projectId }) => {
                     </button>
                 </form>
                 {error && <p className="password-error">{error}</p>}
-                <a href="/" className="password-back-link">← Back to Home</a>
+                <Link to="/" className="password-back-link">← Back to Home</Link>
             </div>
         </div>
     );

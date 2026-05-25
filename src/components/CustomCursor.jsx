@@ -10,6 +10,7 @@ const CustomCursor = () => {
 
     const [cursorState, setCursorState] = useState('default'); // 'default' | 'hover' | 'click' | 'text'
     const [isVisible, setIsVisible] = useState(false);
+    const isVisibleRef = useRef(false);
 
     const lerp = (a, b, t) => a + (b - a) * t;
 
@@ -30,11 +31,14 @@ const CustomCursor = () => {
     useEffect(() => {
         const onMouseMove = (e) => {
             posRef.current = { x: e.clientX, y: e.clientY };
-            if (!isVisible) setIsVisible(true);
+            if (!isVisibleRef.current) {
+                isVisibleRef.current = true;
+                setIsVisible(true);
+            }
         };
 
-        const onMouseEnter = () => setIsVisible(true);
-        const onMouseLeave = () => setIsVisible(false);
+        const onMouseEnter = () => { isVisibleRef.current = true; setIsVisible(true); };
+        const onMouseLeave = () => { isVisibleRef.current = false; setIsVisible(false); };
 
         const onMouseDown = () => setCursorState('click');
         const onMouseUp = () => {
@@ -84,7 +88,7 @@ const CustomCursor = () => {
             window.removeEventListener('mouseover', onMouseOver);
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
         };
-    }, [animate, isVisible]);
+    }, [animate]);
 
     return (
         <>
