@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import BlurText from './BlurText';
 import './About.css';
 
@@ -59,44 +58,6 @@ const About = () => {
                         <img src="/assets/sayak image 4.svg" alt="Sayak" className="about-image" loading="lazy" />
                     </div>
                 </div>
-            </div>
-
-            <div className="container mobile-apps-header">
-                <BlurText
-                    text="Mobile Applications"
-                    className="section-title"
-                    delay={50}
-                    animateBy="words"
-                />
-            </div>
-
-            <div className="container about-projects">
-                <Link to="/project/music" className="project-showcase" style={{ display: 'block' }}>
-                    <img src="/assets/mobile app project3.svg" alt="Mobile App Project 3" className="showcase-image" loading="lazy" />
-                </Link>
-                <Link to="/project/banking" className="project-showcase" style={{ display: 'block' }}>
-                    <img src="/assets/mobile_app_project1.svg" alt="Mobile App Project 1" className="showcase-image" loading="lazy" />
-                </Link>
-
-            </div>
-
-            <div className="container mobile-apps-header">
-                <BlurText
-                    text="Website"
-                    className="section-title"
-                    delay={50}
-                    animateBy="words"
-                />
-            </div>
-
-            <div className="container about-projects">
-                <Link to="/project/website1" className="project-showcase" style={{ display: 'block' }}>
-                    <img src="/assets/website background 1.svg" alt="Govt Website Redesign" className="showcase-image" loading="lazy" />
-                </Link>
-                <Link to="/project/website2" className="project-showcase" style={{ display: 'block' }}>
-                    <img src="/assets/website back solar.svg" alt="Website Project 2" className="showcase-image" loading="lazy" />
-                </Link>
-
             </div>
         </section>
     );
