@@ -137,20 +137,21 @@
 
 /* ── Card ──────────────────────────────────────────────────────── */
 .work-card {
-    background: var(--bg-color);
+    background: rgba(235, 231, 224, 0.6);
     overflow: hidden;
     transition: background 0.25s ease;
 }
 
 [data-theme='dark'] .work-card {
+    background: rgba(42, 42, 42, 0.4);
 }
 
 .work-card:hover {
-    background: var(--clay);
+    background: rgba(224, 219, 210, 0.85);
 }
 
 [data-theme='dark'] .work-card:hover {
-    background: #1e1e1e;
+    background: rgba(55, 55, 55, 0.55);
 }
 
 .work-card-link {
@@ -167,7 +168,7 @@
     aspect-ratio: 16 / 10;
     overflow: hidden;
     position: relative;
-    background: var(--clay);
+    background: rgba(235, 231, 224, 0.6);
 }
 
 .work-image {
@@ -260,14 +261,14 @@
     font-weight: 500;
     color: var(--text-muted);
     background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid #0a5eb0;
     padding: 3px 10px;
     border-radius: 100px;
 }
 
 [data-theme='dark'] .work-tag {
     background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: #faeb92;
 }
 
 /* ── CTA ───────────────────────────────────────────────────────── */

@@ -5,6 +5,8 @@ import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import './App.css';
 import ChatButton from './components/ChatButton';
+import MusicPlayer from './components/MusicPlayer';
+import useSoundEffects from './components/useSoundEffects';
 
 const About = lazy(() => import('./components/About'));
 const Works = lazy(() => import('./components/Works'));
@@ -23,6 +25,7 @@ import WebsiteProject2Page from './components/WebsiteProject2Page';
 import PasswordProtection from './components/PasswordProtection';
 
 function App() {
+    useSoundEffects();
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.2,
@@ -53,6 +56,7 @@ function App() {
             <div className="App">
                 <CustomCursor />
                 <ChatButton />
+                <MusicPlayer />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/project/music" element={<MusicProjectPage />} />
@@ -82,8 +86,8 @@ const Home = () => (
         <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
             <About />
             <Works />
-            <ArtLens />
             <Journey />
+            <ArtLens />
             <Collab />
             <Footer />
         </Suspense>

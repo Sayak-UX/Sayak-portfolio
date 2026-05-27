@@ -4,6 +4,24 @@ import './About.css';
 
 const About = () => {
     const sectionRef = useRef(null);
+    const cardRef = useRef(null);
+
+    // Preload the camera mp3
+    const shutterAudio = useRef(new Audio('/assets/kakaist-camera-shutter-314056.mp3'));
+
+    const handleShutter = () => {
+        const card = cardRef.current;
+        if (!card) return;
+        // 🔊 Play real camera mp3
+        const audio = shutterAudio.current;
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+        // 📸 Visual animation
+        card.classList.remove('shutter-flash');
+        void card.offsetWidth;
+        card.classList.add('shutter-flash');
+        setTimeout(() => card.classList.remove('shutter-flash'), 400);
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -55,7 +73,19 @@ const About = () => {
                 </div>
                 <div className="about-visual reveal-text" style={{ transitionDelay: '0.3s' }}>
                     <div className="visual-frame">
-                        <img src="/assets/sayak image 4.svg" alt="Sayak" className="about-image" loading="lazy" />
+                        <div className="profile-card" ref={cardRef} onClick={handleShutter}>
+                            <div className="profile-img-wrap">
+                                <img src="/assets/sayak image 4.svg" alt="Sayak" className="about-image" loading="lazy" />
+                                <div className="profile-corner tl" />
+                                <div className="profile-corner tr" />
+                                <div className="profile-corner bl" />
+                                <div className="profile-corner br" />
+                            </div>
+                            <div className="profile-label">
+                                <span className="profile-name">Sayak Sarkar</span>
+                                <span className="profile-role">UI / UX Designer</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
