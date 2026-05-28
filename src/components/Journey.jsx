@@ -73,10 +73,10 @@ const Journey = () => {
                                     className="journey-p-text"
                                 />
                                 <div className="journey-tools">
-                                    <SiFigma className="tool-icon" title="Figma" />
-                                    <SiAdobexd className="tool-icon" title="Adobe XD" />
-                                    <SiSketch className="tool-icon" title="Sketch" />
-                                    <BsStars className="tool-icon" title="AI Tools (Uizard, Galileo AI)" />
+                                    <SiFigma className="tool-icon figma" title="Figma" />
+                                    <SiAdobexd className="tool-icon adobe-xd" title="Adobe XD" />
+                                    <SiSketch className="tool-icon sketch" title="Sketch" />
+                                    <BsStars className="tool-icon ai-stars" title="AI Tools (Uizard, Galileo AI)" />
                                 </div>
                             </div>
                         </div>

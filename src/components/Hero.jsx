@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Plasma from './Plasma';
+import Grainient from './Grainient';
 import './Hero.css';
 
 const Typewriter = ({ text, speed = 100, delay = 0 }) => {
@@ -108,13 +109,29 @@ const Hero = () => {
                 </p>
             </div>
             <div className="hero-background">
-                <Plasma
-                    color={theme === 'dark' ? "#ff6b35" : "#87CEEB"}
-                    speed={0.6}
-                    direction="forward"
-                    scale={1.1}
-                    opacity={0.8}
-                    mouseInteractive={true}
+                <Grainient
+                    color1={theme === 'dark' ? "#49c664" : "#5b9bda"}
+                    color2={theme === 'dark' ? "#000000" : "#f6f3ee"}
+                    color3={theme === 'dark' ? "#040202" : "#f6f3ee"}
+                    timeSpeed={1}
+                    colorBalance={0}
+                    warpStrength={1}
+                    warpFrequency={5}
+                    warpSpeed={2}
+                    warpAmplitude={50}
+                    blendAngle={0}
+                    blendSoftness={0.05}
+                    rotationAmount={500}
+                    noiseScale={2}
+                    grainAmount={0.1}
+                    grainScale={2}
+                    grainAnimated={false}
+                    contrast={1.5}
+                    gamma={1}
+                    saturation={1}
+                    centerX={0}
+                    centerY={0}
+                    zoom={0.9}
                 />
                 {/* Abstract artistic background element */}
                 <div className="abstract-shape"></div>

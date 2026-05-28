@@ -1,0 +1,219 @@
+/* ══════════════════════════════════════════
+   Tools Section — Tools I Use
+   ══════════════════════════════════════════ */
+
+.tools-section {
+    background: var(--bg-color);
+}
+
+.tools-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ── Top header row ────────────────────────────────────────────── */
+.tools-top-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.tools-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.tools-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.tools-main-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 400;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin: 0;
+}
+
+/* ── Infinite Marquee ───────────────────────────────────────────── */
+.tools-marquee-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 2rem 0;
+    /* Soft edge fading using mask-image - reduced range for maximum visibility */
+    mask-image: linear-gradient(to right, transparent, white 2%, white 98%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, white 2%, white 98%, transparent);
+}
+
+.tools-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 35s linear infinite;
+}
+
+/* Pause scroll animation on hover so user can focus on cards */
+.tools-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.tools-marquee-group {
+    display: flex;
+    gap: 16px;
+    padding-right: 16px; /* Consistent margin between cloned sets */
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ── Card ──────────────────────────────────────────────────────── */
+.tool-card {
+    position: relative;
+    background: rgba(245, 240, 230, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 24px; /* Increased rounded corners on all sides */
+    overflow: hidden;
+    width: 270px;
+    flex-shrink: 0;
+    transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='dark'] .tool-card {
+    background: rgba(30, 30, 30, 0.35);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.tool-card-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.3rem 1.5rem;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Glow underlay */
+.tool-card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 120px at 50% 50%, var(--glow-color), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hover States */
+.tool-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand-color);
+    background: rgba(235, 230, 220, 0.55);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03), 
+                0 0 20px var(--glow-color);
+}
+
+[data-theme='dark'] .tool-card:hover {
+    background: rgba(45, 45, 45, 0.45);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2), 
+                0 0 24px var(--glow-color);
+}
+
+.tool-card:hover .tool-card-glow {
+    opacity: 1;
+}
+
+/* Grayscale logo on hover for artistic black & white aesthetic */
+.tool-card:hover .tool-logo-svg {
+    filter: grayscale(100%) contrast(1.15) brightness(1.2);
+}
+
+/* ── Card Header ───────────────────────────────────────────────── */
+.tool-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tool-icon-wrap {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='dark'] .tool-icon-wrap {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tool-logo-svg {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tool-card:hover .tool-icon-wrap {
+    transform: scale(1.08);
+}
+
+.tool-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.tool-name {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.tool-subcategory {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* ── Responsive styling ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .tools-top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+

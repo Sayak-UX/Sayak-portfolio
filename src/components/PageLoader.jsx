@@ -10,7 +10,7 @@ import './PageLoader.css';
  *   category {string}  — small label shown below the bar
  *   delay    {number}  — ms before the loader starts fading out
  */
-const PageLoader = ({ title = 'Project', category = '', delay = 1400 }) => {
+const PageLoader = ({ title = 'Project', category = '', delay = 2200 }) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
@@ -32,6 +32,7 @@ const PageLoader = ({ title = 'Project', category = '', delay = 1400 }) => {
                 <div className="loader-bar-fill" />
             </div>
             {category && <p className="loader-category">{category}</p>}
+            <p className="loader-notice">It's a design project, please wait to load...</p>
         </div>
     );
 };

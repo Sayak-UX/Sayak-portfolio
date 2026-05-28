@@ -88,6 +88,21 @@
 }
 
 .tool-icon:hover {
-    color: var(--accent-color);
     transform: translateY(-2px);
+}
+
+.tool-icon.figma:hover {
+    color: #F24E1E;
+}
+
+.tool-icon.adobe-xd:hover {
+    color: #FF61F6;
+}
+
+.tool-icon.sketch:hover {
+    color: #FDB300;
+}
+
+.tool-icon.ai-stars:hover {
+    color: #A855F7;
 }

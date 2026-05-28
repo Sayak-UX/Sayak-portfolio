@@ -12,6 +12,7 @@ const About = lazy(() => import('./components/About'));
 const Works = lazy(() => import('./components/Works'));
 const ArtLens = lazy(() => import('./components/ArtLens'));
 const Journey = lazy(() => import('./components/Journey'));
+const Tools = lazy(() => import('./components/Tools'));
 const Collab = lazy(() => import('./components/Collab'));
 const Footer = lazy(() => import('./components/Footer'));
 
@@ -86,6 +87,7 @@ const Home = () => (
         <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
             <About />
             <Works />
+            <Tools />
             <Journey />
             <ArtLens />
             <Collab />

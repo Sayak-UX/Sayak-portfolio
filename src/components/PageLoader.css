@@ -85,6 +85,19 @@
     animation: fadeInUp 0.6s ease 0.5s forwards;
 }
 
+/* ── Notice Label ────────────────────────────────────────── */
+.loader-notice {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    opacity: 0;
+    margin-top: 0.5rem;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+    text-align: center;
+}
+
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
