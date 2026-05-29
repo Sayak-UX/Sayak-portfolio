@@ -103,8 +103,8 @@
     display: block;
     pointer-events: none;
 
-    /* Default State: B&W + Blur */
-    filter: grayscale(100%) blur(3px);
+    /* Default State: B&W (Sharp) */
+    filter: grayscale(100%);
     transform: scale(1);
 
     /* Smooth Transition */
@@ -127,7 +127,7 @@
 
 /* Hover Interaction */
 .gallery-item:hover .gallery-image {
-    filter: grayscale(0%) blur(0);
+    filter: grayscale(0%);
     transform: scale(1.06);
 }
 
