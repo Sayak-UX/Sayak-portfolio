@@ -17,13 +17,11 @@ const Collab = lazy(() => import('./components/Collab'));
 const Footer = lazy(() => import('./components/Footer'));
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MusicProjectPage from './components/MusicProjectPage';
 import BankingProjectPage from './components/BankingProjectPage';
 import AirIndiaProjectPage from './components/AirIndiaProjectPage';
 import WebsiteProject1Page from './components/WebsiteProject1Page';
 import WebsiteProject2Page from './components/WebsiteProject2Page';
-
-import PasswordProtection from './components/PasswordProtection';
+import ResearchSeminarProjectPage from './components/ResearchSeminarProjectPage';
 
 function App() {
     useSoundEffects();
@@ -60,19 +58,11 @@ function App() {
                 <MusicPlayer />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/project/music" element={<MusicProjectPage />} />
                     <Route path="/project/banking" element={<BankingProjectPage />} />
-                    <Route path="/project/air-india" element={
-                        <PasswordProtection requiredPassword="Public03" projectId="airindia">
-                            <AirIndiaProjectPage />
-                        </PasswordProtection>
-                    } />
-                    <Route path="/project/website1" element={
-                        <PasswordProtection requiredPassword="Public03" projectId="website1">
-                            <WebsiteProject1Page />
-                        </PasswordProtection>
-                    } />
+                    <Route path="/project/air-india" element={<AirIndiaProjectPage />} />
+                    <Route path="/project/website1" element={<WebsiteProject1Page />} />
                     <Route path="/project/website2" element={<WebsiteProject2Page />} />
+                    <Route path="/project/research-seminar" element={<ResearchSeminarProjectPage />} />
 
                 </Routes>
             </div>

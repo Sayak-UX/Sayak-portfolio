@@ -84,9 +84,6 @@ const Navbar = () => {
                 <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
                     <button onClick={() => scrollToSection('about')}>About</button>
                     <button onClick={() => scrollToSection('work')}>My works</button>
-                    <button onClick={() => scrollToSection('art')}>Art and lens</button>
-                    <button onClick={() => scrollToSection('journey')}>Journey</button>
-                    <button onClick={() => scrollToSection('collab')}>Connect me</button>
 
                     <a href="/assets/Sayak Sarkar Resume25x1.pdf" download className="btn-download-cv">
                         Download CV

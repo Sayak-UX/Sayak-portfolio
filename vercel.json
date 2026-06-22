@@ -1,3 +1,6 @@
 {
-    "name": "sayak25"
+    "name": "sayak25",
+    "rewrites": [
+        { "source": "/(.*)", "destination": "/" }
+    ]
 }

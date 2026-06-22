@@ -14,7 +14,8 @@ const Works = () => {
             titleHighlight: 'Bank App',
             category: 'Mobile',
             subcategory: 'UI Exploration',
-            tags: ['UI Design', 'Fintech', 'Research'],
+            eyebrow: '/ IOS & ANDROID',
+            tags: ['UI DESIGN', 'FINTECH', 'USER RESEARCH'],
             badge: null,
             badgeColor: null,
             year: '2025',
@@ -22,6 +23,7 @@ const Works = () => {
             image: '/assets/mobile_app_project1.svg',
             link: '/project/banking',
             filter: ['All', 'Apps'],
+            buttonText: 'View Case Study'
         },
         {
             id: 2,
@@ -29,14 +31,16 @@ const Works = () => {
             titleHighlight: 'Redesign',
             category: 'Mobile',
             subcategory: 'UX Audit',
-            tags: ['Mobile', 'Redesign', 'Accessibility'],
+            eyebrow: '/ IOS & ANDROID',
+            tags: ['UX AUDIT', 'ACCESSIBILITY', 'REDESIGN'],
             badge: 'Featured',
             badgeColor: '#1a56db',
             year: '2025',
-            description: 'A comprehensive UX audit and redesign concept for India\'s flagship airline — improving booking flows, wayfinding, and brand coherence.',
+            description: 'Frog Design laid the foundation. I came in at Phase 3 to fix what **4M users** were struggling with leading 6 designers across buying, servicing, and loyalty.',
             image: '/assets/mobile app project2.svg',
             link: '/project/air-india',
             filter: ['All', 'Apps', 'Redesigns'],
+            buttonText: 'View Case Study'
         },
         {
             id: 3,
@@ -44,14 +48,16 @@ const Works = () => {
             titleHighlight: 'Music',
             category: 'Mobile',
             subcategory: 'UI Research',
-            tags: ['UI Design', 'Research', 'Branding'],
+            eyebrow: '/ IOS & ANDROID',
+            tags: ['UI DESIGN', 'RESEARCH', 'BRANDING'],
             badge: null,
             badgeColor: null,
             year: '2025',
-            description: 'An immersive music discovery app concept balancing aesthetic depth with intuitive navigation and deep personalisation.',
+            description: 'An immersive music discovery app concept balancing aesthetic depth with intuitive navigation and deep personalisation for listeners.',
             image: '/assets/mobile app project3.svg',
             link: '/project/music',
             filter: ['All', 'Apps'],
+            buttonText: 'Full Story Coming Soon'
         },
         {
             id: 4,
@@ -59,14 +65,16 @@ const Works = () => {
             titleHighlight: 'Website Redesign',
             category: 'Web',
             subcategory: 'UX Audit',
-            tags: ['Accessibility', 'Heuristics', 'UX Audit'],
+            eyebrow: '/ ACCESSIBILITY & WEB',
+            tags: ['ACCESSIBILITY', 'HEURISTIC EVALUATION', 'UX AUDIT'],
             badge: 'Featured',
             badgeColor: '#6b21a8',
             year: '2025',
-            description: 'A heuristic-driven redesign of a government digital portal to improve usability, accessibility standards, and citizen trust.',
+            description: 'A heuristic-driven redesign of a government digital portal to improve usability, accessibility standards, and citizen trust across diverse demographics.',
             image: '/assets/website background 1.svg',
             link: '/project/website1',
             filter: ['All', 'Website', 'Redesigns'],
+            buttonText: 'View Case Study'
         },
         {
             id: 5,
@@ -74,7 +82,8 @@ const Works = () => {
             titleHighlight: 'Solar Service',
             category: 'Web',
             subcategory: 'Visual Design',
-            tags: ['Visual Design', 'Branding', 'Web'],
+            eyebrow: '/ BRANDING & WEB',
+            tags: ['VISUAL DESIGN', 'BRANDING', 'WEB DESIGN'],
             badge: null,
             badgeColor: null,
             year: '2025',
@@ -82,6 +91,7 @@ const Works = () => {
             image: '/assets/website back solar.svg',
             link: '/project/website2',
             filter: ['All', 'Website'],
+            buttonText: 'View Case Study'
         },
     ];
 
@@ -89,7 +99,6 @@ const Works = () => {
 
     // Group by category for category headings
     const grouped = filtered.reduce((acc, project) => {
-        const key = `${project.category} — ${project.subcategory !== project.category ? project.category + ' Design' : project.subcategory}`;
         const groupKey = project.category;
         if (!acc[groupKey]) acc[groupKey] = [];
         acc[groupKey].push(project);
@@ -136,61 +145,86 @@ const Works = () => {
                             <p className="works-group-label">{categoryLabels[groupKey]}</p>
                         </div>
 
-                        {/* 2-column grid */}
-                        <div className="works-grid">
+                        {/* Stack of row cards */}
+                        <div className="works-list-container">
                             {groupProjects.map((project) => (
-                                <article key={project.id} className="work-card">
-                                    <Link to={project.link} className="work-card-link">
-
-                                        {/* ── Image ── */}
-                                        <div className="work-image-wrap">
-                                            <img
-                                                src={project.image}
-                                                alt={project.title}
-                                                className="work-image"
-                                                loading="lazy"
-                                            />
-                                            {project.badge && (
-                                                <span
-                                                    className="work-badge"
-                                                    style={{ background: project.badgeColor }}
-                                                >
-                                                    {project.badge}
-                                                </span>
-                                            )}
-                                        </div>
-
-                                        {/* ── Card body ── */}
-                                        <div className="work-body">
-                                            <span className="work-meta">
-                                                {project.category}&nbsp;/&nbsp;
-                                                <span>{project.subcategory}</span>
-                                            </span>
-
-                                            <h3 className="work-title">
+                                <article key={project.id} className="work-card-row">
+                                    {/* ── Left Content column ── */}
+                                    <div className="work-row-content">
+                                        <div className="work-row-top-info">
+                                            <span className="work-row-eyebrow">{project.eyebrow}</span>
+                                            
+                                            <h3 className="work-row-title">
                                                 {project.title.replace(project.titleHighlight, '').trim()}{' '}
                                                 <em>{project.titleHighlight}</em>
                                             </h3>
-
-                                            <p className="work-desc">{project.description}</p>
-
-                                            <div className="work-tags">
-                                                {project.tags.map((tag) => (
-                                                    <span key={tag} className="work-tag">{tag}</span>
-                                                ))}
-                                            </div>
-
-                                            <span className="work-cta">
-                                                View Case Study&nbsp;→
-                                            </span>
+                                            
+                                            <p className="work-row-desc">
+                                                {project.description.includes('**') ? (
+                                                    project.description.split('**').map((text, i) => 
+                                                        i % 2 === 1 ? <strong key={i} className="highlight-text">{text}</strong> : text
+                                                    )
+                                                ) : (
+                                                    project.description
+                                                )}
+                                            </p>
                                         </div>
 
-                                    </Link>
+                                        <div className="work-row-mid-section">
+                                            <div className="work-row-tags">
+                                                {project.tags.map((tag) => (
+                                                    <span key={tag} className="work-row-tag">{tag}</span>
+                                                ))}
+                                            </div>
+                                            
+                                            {project.buttonText === 'Full Story Coming Soon' ? (
+                                                <div className="work-row-btn disabled">
+                                                    {project.buttonText}
+                                                </div>
+                                            ) : (
+                                                <Link to={project.link} className="work-row-btn">
+                                                    {project.buttonText}
+                                                </Link>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* ── Right Image column ── */}
+                                    <div className="work-row-image-wrap">
+                                        {project.buttonText === 'Full Story Coming Soon' ? (
+                                            <div className="work-row-image-container">
+                                                <img
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    className="work-row-image"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <Link to={project.link} className="work-row-image-container">
+                                                <img
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    className="work-row-image"
+                                                    loading="lazy"
+                                                />
+                                            </Link>
+                                        )}
+                                        {project.badge && (
+                                            <span
+                                                className="work-row-badge"
+                                                style={{ background: project.badgeColor }}
+                                            >
+                                                {project.badge}
+                                            </span>
+                                        )}
+                                    </div>
                                 </article>
                             ))}
                         </div>
                     </div>
                 ))}
+
 
             </div>
         </section>
