@@ -21,6 +21,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCAwIEw3IDIwIEwxMCAxMSBaIiBmaWxsPSIjMmQyZDJkIi8+PHBhdGggZD0iTTAgMCBMMTAgMTEgTDIwIDggWiIgZmlsbD0iIzdkN2Q3ZCIvPjwvc3ZnPg==") 0 0, default;
+}
+
+[data-theme='dark'] *, [data-theme='dark'] *::before, [data-theme='dark'] *::after {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCAwIEw3IDIwIEwxMCAxMSBaIiBmaWxsPSIjYjMwMGIzIi8+PHBhdGggZD0iTTAgMCBMMTAgMTEgTDIwIDggWiIgZmlsbD0iI2ZmMDBmZiIvPjwvc3ZnPg==") 0 0, default;
+}
+
+a, button, [role="button"], select, input[type="submit"], input[type="button"], .cursor-pointer, .gallery-item {
+  cursor: pointer !important;
+}
+
+input[type="text"], input[type="email"], input[type="search"], input[type="tel"], textarea, [contenteditable] {
+  cursor: text !important;
 }
 
 html.lenis {

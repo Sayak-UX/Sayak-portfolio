@@ -1,8 +1,8 @@
 /* ─── Custom Cursor ─────────────────────────────────────────────── */
 
-/* Hide the native cursor site-wide */
+/* Keep native pointer default (visible) */
 *, *::before, *::after {
-    cursor: none !important;
+    /* browser default cursor remains visible */
 }
 
 /* Shared visibility states */
@@ -14,19 +14,19 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     pointer-events: none;
     z-index: 99998;
     will-change: transform;
 
-    border: 1.5px solid #1A1A1A;
-    background: transparent;
+    border: 1.5px solid #e052a0;
+    background: rgba(224, 82, 160, 0.08);
 
     transition:
-        width  0.4s cubic-bezier(0.23, 1, 0.32, 1),
-        height 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+        width  0.3s cubic-bezier(0.23, 1, 0.32, 1),
+        height 0.3s cubic-bezier(0.23, 1, 0.32, 1),
         border-color 0.3s ease,
         background-color 0.3s ease,
         opacity 0.2s ease,
@@ -38,20 +38,20 @@
     display: none;
 }
 
-/* ── Hover: expands + site accent ──────────────────────────────── */
+/* ── Hover: expands slightly + cute pink ───────────────────────── */
 .cursor-ring--hover {
-    width: 52px;
-    height: 52px;
-    border-color: #5D737E;
-    background: rgba(93, 115, 126, 0.08);
+    width: 24px;
+    height: 24px;
+    border-color: #e052a0;
+    background: rgba(224, 82, 160, 0.2);
 }
 
 /* ── Click: sharp contract ─────────────────────────────────────── */
 .cursor-ring--click {
-    width: 18px;
-    height: 18px;
-    border-color: #1A1A1A;
-    background: rgba(26, 26, 26, 0.1);
+    width: 8px;
+    height: 8px;
+    border-color: #e052a0;
+    background: rgba(224, 82, 160, 0.4);
     transition:
         width  0.1s cubic-bezier(0.23, 1, 0.32, 1),
         height 0.1s cubic-bezier(0.23, 1, 0.32, 1),
@@ -59,32 +59,29 @@
         background-color 0.08s ease;
 }
 
-/* ── Text: slim I-beam ─────────────────────────────────────────── */
+/* ── Text: hide custom cursor on text to avoid overlapping with default I-beam ── */
 .cursor-ring--text {
-    width: 2px;
-    height: 26px;
-    border-radius: 1px;
-    border: 1.5px solid #1A1A1A;
-    background: transparent;
+    opacity: 0 !important;
 }
 
 /* ── Dark mode ring ────────────────────────────────────────────── */
 [data-theme='dark'] .cursor-ring {
-    border-color: #F6F3EE;
+    border-color: #ff9ffc;
+    background: rgba(255, 159, 252, 0.08);
 }
 
 [data-theme='dark'] .cursor-ring--hover {
-    border-color: #8AA2B3;
-    background: rgba(138, 162, 179, 0.1);
+    border-color: #ff9ffc;
+    background: rgba(255, 159, 252, 0.25);
 }
 
 [data-theme='dark'] .cursor-ring--click {
-    border-color: #F6F3EE;
-    background: rgba(246, 243, 238, 0.1);
+    border-color: #ff9ffc;
+    background: rgba(255, 159, 252, 0.4);
 }
 
 [data-theme='dark'] .cursor-ring--text {
-    border-color: #F6F3EE;
+    opacity: 0 !important;
 }
 
 /* ══ Sharp Centre Dot ════════════════════════════════════════════ */
@@ -98,7 +95,7 @@
     pointer-events: none;
     z-index: 99999;
     will-change: transform;
-    background: #1A1A1A;
+    background: #e052a0;
 
     transition:
         width  0.2s cubic-bezier(0.23, 1, 0.32, 1),
@@ -108,15 +105,15 @@
 }
 
 .cursor-dot--hover {
-    width: 5px;
-    height: 5px;
-    background: #5D737E;
+    width: 6px;
+    height: 6px;
+    background: #e052a0;
 }
 
 .cursor-dot--click {
-    width: 3px;
-    height: 3px;
-    background: #1A1A1A;
+    width: 2px;
+    height: 2px;
+    background: #e052a0;
 }
 
 .cursor-dot--text {
@@ -124,15 +121,15 @@
 }
 
 [data-theme='dark'] .cursor-dot {
-    background: #F6F3EE;
+    background: #ff9ffc;
 }
 
 [data-theme='dark'] .cursor-dot--hover {
-    background: #8AA2B3;
+    background: #ff9ffc;
 }
 
 [data-theme='dark'] .cursor-dot--click {
-    background: #F6F3EE;
+    background: #ff9ffc;
 }
 
 /* ══ Click Ripple ════════════════════════════════════════════════ */

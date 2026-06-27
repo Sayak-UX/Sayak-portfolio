@@ -20,7 +20,7 @@ const Works = () => {
             badgeColor: null,
             year: '2025',
             description: 'A modern fintech mobile banking experience focused on clarity, trust, and seamless transactions — from onboarding to daily spend tracking.',
-            image: '/assets/mobile_app_project1.svg',
+            image: '/assets/mobile_app_project1_real.png',
             link: '/project/banking',
             filter: ['All', 'Apps'],
             buttonText: 'View Case Study'
@@ -37,27 +37,10 @@ const Works = () => {
             badgeColor: '#1a56db',
             year: '2025',
             description: 'Frog Design laid the foundation. I came in at Phase 3 to fix what **4M users** were struggling with leading 6 designers across buying, servicing, and loyalty.',
-            image: '/assets/mobile app project2.svg',
+            image: '/assets/mobile app project2_real.png',
             link: '/project/air-india',
             filter: ['All', 'Apps', 'Redesigns'],
             buttonText: 'View Case Study'
-        },
-        {
-            id: 3,
-            title: 'Music Application',
-            titleHighlight: 'Music',
-            category: 'Mobile',
-            subcategory: 'UI Research',
-            eyebrow: '/ IOS & ANDROID',
-            tags: ['UI DESIGN', 'RESEARCH', 'BRANDING'],
-            badge: null,
-            badgeColor: null,
-            year: '2025',
-            description: 'An immersive music discovery app concept balancing aesthetic depth with intuitive navigation and deep personalisation for listeners.',
-            image: '/assets/mobile app project3.svg',
-            link: '/project/music',
-            filter: ['All', 'Apps'],
-            buttonText: 'Full Story Coming Soon'
         },
         {
             id: 4,
@@ -71,7 +54,7 @@ const Works = () => {
             badgeColor: '#6b21a8',
             year: '2025',
             description: 'A heuristic-driven redesign of a government digital portal to improve usability, accessibility standards, and citizen trust across diverse demographics.',
-            image: '/assets/website background 1.svg',
+            image: '/assets/website_background_1_real.png',
             link: '/project/website1',
             filter: ['All', 'Website', 'Redesigns'],
             buttonText: 'View Case Study'
@@ -88,7 +71,7 @@ const Works = () => {
             badgeColor: null,
             year: '2025',
             description: 'A bold, brand-forward web design for a solar energy company — exploring identity systems, typography, and strong layout principles.',
-            image: '/assets/website back solar.svg',
+            image: '/assets/website_solar_bg.png',
             link: '/project/website2',
             filter: ['All', 'Website'],
             buttonText: 'View Case Study'

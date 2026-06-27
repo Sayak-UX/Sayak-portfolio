@@ -1,7 +1,6 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import Lenis from '@studio-freight/lenis';
 import Hero from './components/Hero';
-import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import './App.css';
 import ChatButton from './components/ChatButton';
@@ -53,7 +52,6 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <CustomCursor />
                 <ChatButton />
                 <MusicPlayer />
                 <Routes>

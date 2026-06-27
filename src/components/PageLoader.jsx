@@ -10,8 +10,16 @@ import './PageLoader.css';
  *   category {string}  — small label shown below the bar
  *   delay    {number}  — ms before the loader starts fading out
  */
-const PageLoader = ({ title = 'Project', category = '', delay = 2200 }) => {
+const PageLoader = ({ title = 'Project', category = '', forceLoaded = false, delay = 4000 }) => {
     const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        if (forceLoaded) {
+            // Small transition delay so user can appreciate the typography entrance animation
+            const timer = setTimeout(() => setLoaded(true), 400);
+            return () => clearTimeout(timer);
+        }
+    }, [forceLoaded]);
 
     useEffect(() => {
         const timer = setTimeout(() => setLoaded(true), delay);
