@@ -37,9 +37,7 @@
 }
 
 .full-width-image {
-    max-width: 1920px;
     width: 100%;
     height: auto;
-    object-fit: contain;
     display: block;
 }
