@@ -59,9 +59,9 @@
 <rect x="1183.65" y="171.33" width="359.606" height="736.475" rx="70.5" fill="#F9F9F4" stroke="#585657"/>
 <rect x="1185.81" y="173.49" width="355.286" height="732.155" rx="69" fill="#808282"/>
 <rect x="1189.13" y="176.811" width="348.645" height="725.514" rx="65" fill="black"/>
-<image href="project_mobile_bank_app_bg.svg" x="1189.13" y="176.811" width="348.645" height="4705.44" clip-path="url(#screen-mask-main)" preserveAspectRatio="xMidYMin slice" />
+<image href="project_mobile_bank_app_bg.svg" x="1189.13" y="176.811" width="348.645" height="5336.26" clip-path="url(#screen-mask-main)" preserveAspectRatio="xMidYMin slice" />
 
-<image href="project_mobile_bank_app_bg.svg" x="1189.13" y="176.811" width="348.645" height="4705.44" clip-path="url(#screen-mask-main)" preserveAspectRatio="xMidYMin slice" />
+<image href="project_mobile_bank_app_bg.svg" x="1189.13" y="176.811" width="348.645" height="5336.26" clip-path="url(#screen-mask-main)" preserveAspectRatio="xMidYMin slice" />
 <path d="M1328.59 176.811H1398.32C1398.32 178.644 1396.83 180.131 1395 180.131H1331.91C1330.08 180.131 1328.59 178.644 1328.59 176.811Z" fill="url(#paint6_linear_549_146)"/>
 <path d="M1181 313.198H1183.07V340.092H1181C1180.59 340.092 1180.25 339.756 1180.25 339.342V313.948L1180.25 313.871C1180.29 313.493 1180.61 313.198 1181 313.198Z" fill="#D5D7D4" stroke="#999B9A" stroke-width="0.5"/>
 <rect x="1181.66" y="314.608" width="1.66022" height="24.0731" fill="#C7C8C7"/>
