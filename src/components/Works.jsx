@@ -43,6 +43,23 @@ const Works = () => {
             buttonText: 'View Case Study'
         },
         {
+            id: 3,
+            title: 'Adaptive Traffic AI',
+            titleHighlight: 'Traffic AI',
+            category: 'Web',
+            subcategory: 'AI & UX Case Study',
+            eyebrow: '/ AI & UX RESEARCH',
+            tags: ['AI DASHBOARD', 'EXPLAINABLE AI', 'UX RESEARCH'],
+            badge: 'Featured',
+            badgeColor: '#10b981',
+            year: '2025',
+            description: 'Co-designing an explainable AI-driven dashboard and real-time commuter framework for intelligent urban mobility and trust.',
+            image: '/assets/traffic_thumb.png',
+            link: '/project/research-seminar',
+            filter: ['All', 'Website', 'Design with AI'],
+            buttonText: 'View Case Study'
+        },
+        {
             id: 4,
             title: 'Govt Portal Website Redesign',
             titleHighlight: 'Website Redesign',
@@ -155,9 +172,14 @@ const Works = () => {
 
                                         <div className="work-row-mid-section">
                                             <div className="work-row-tags">
-                                                {project.tags.map((tag) => (
-                                                    <span key={tag} className="work-row-tag">{tag}</span>
-                                                ))}
+                                                {project.tags.map((tag) => {
+                                                    const slug = tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                                                    return (
+                                                        <span key={tag} className={`work-row-tag tag-${slug}`}>
+                                                            {tag}
+                                                        </span>
+                                                    );
+                                                })}
                                             </div>
                                             
                                             {project.buttonText === 'Full Story Coming Soon' ? (

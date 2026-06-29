@@ -85,7 +85,7 @@ const Navbar = () => {
                     <button onClick={() => scrollToSection('about')}>About</button>
                     <button onClick={() => scrollToSection('work')}>My works</button>
 
-                    <a href="/assets/Sayak Sarkar Resume25x1.pdf" download className="btn-download-cv">
+                    <a href="/assets/Sayak Sarkar CV3.pdf" download className="btn-download-cv">
                         Download CV
                     </a>
 

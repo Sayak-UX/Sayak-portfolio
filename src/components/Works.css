@@ -241,10 +241,101 @@
     letter-spacing: 0.04em;
     color: var(--text-main);
     text-transform: uppercase;
+    transition: all 0.25s ease;
 }
 
 [data-theme='dark'] .work-row-tag {
     border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* UI Design / Web Design / Visual Design (Blue) */
+.work-row-tag.tag-ui-design,
+.work-row-tag.tag-visual-design,
+.work-row-tag.tag-web-design {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.04);
+}
+[data-theme='dark'] .work-row-tag.tag-ui-design,
+[data-theme='dark'] .work-row-tag.tag-visual-design,
+[data-theme='dark'] .work-row-tag.tag-web-design {
+    border-color: #60a5fa;
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.06);
+}
+
+/* Fintech (Green) */
+.work-row-tag.tag-fintech {
+    border-color: #059669;
+    color: #059669;
+    background: rgba(5, 150, 105, 0.04);
+}
+[data-theme='dark'] .work-row-tag.tag-fintech {
+    border-color: #34d399;
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.06);
+}
+
+/* User Research / Heuristic Evaluation (Purple) */
+.work-row-tag.tag-user-research,
+.work-row-tag.tag-heuristic-evaluation {
+    border-color: #7c3aed;
+    color: #7c3aed;
+    background: rgba(124, 58, 237, 0.04);
+}
+[data-theme='dark'] .work-row-tag.tag-user-research,
+[data-theme='dark'] .work-row-tag.tag-heuristic-evaluation {
+    border-color: #a78bfa;
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.06);
+}
+
+/* UX Audit / Accessibility (Amber) */
+.work-row-tag.tag-ux-audit,
+.work-row-tag.tag-accessibility {
+    border-color: #d97706;
+    color: #d97706;
+    background: rgba(217, 119, 6, 0.04);
+}
+[data-theme='dark'] .work-row-tag.tag-ux-audit,
+[data-theme='dark'] .work-row-tag.tag-accessibility {
+    border-color: #fbbf24;
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.06);
+}
+
+/* Redesign / Branding (Rose) */
+.work-row-tag.tag-redesign,
+.work-row-tag.tag-branding {
+    border-color: #e11d48;
+    color: #e11d48;
+    background: rgba(225, 29, 72, 0.04);
+}
+[data-theme='dark'] .work-row-tag.tag-redesign,
+[data-theme='dark'] .work-row-tag.tag-branding {
+    border-color: #fb7185;
+    color: #fb7185;
+    background: rgba(251, 113, 133, 0.06);
+}
+
+/* AI / Machine Learning & Intelligent Design (Teal/Emerald) */
+.work-row-tag.tag-ai-dashboard,
+.work-row-tag.tag-explainable-ai,
+.work-row-tag.tag-ai-product,
+.work-row-tag.tag-smart-time,
+.work-row-tag.tag-ux-research {
+    border-color: #10b981;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.04);
+}
+[data-theme='dark'] .work-row-tag.tag-ai-dashboard,
+[data-theme='dark'] .work-row-tag.tag-explainable-ai,
+[data-theme='dark'] .work-row-tag.tag-ai-product,
+[data-theme='dark'] .work-row-tag.tag-smart-time,
+[data-theme='dark'] .work-row-tag.tag-ux-research {
+    border-color: #34d399;
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.06);
 }
 
 .work-row-btn {
