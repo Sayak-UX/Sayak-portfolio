@@ -93,6 +93,23 @@ const Works = () => {
             filter: ['All', 'Website'],
             buttonText: 'View Case Study'
         },
+        {
+            id: 6,
+            title: 'Ambient Music Application',
+            titleHighlight: 'Music App',
+            category: 'Mobile',
+            subcategory: 'UI Exploration',
+            eyebrow: '/ IOS & ANDROID',
+            tags: ['UI DESIGN', 'AUDIO EXPERIENCE', 'VISUAL DESIGN'],
+            badge: null,
+            badgeColor: null,
+            year: '2025',
+            description: 'An immersive and interactive music application designed for clean aesthetics, seamless transitions, and personalized audio spaces.',
+            image: '/assets/music application.svg',
+            link: '/project/music',
+            filter: ['All', 'Apps'],
+            buttonText: 'Full Story Coming Soon'
+        },
     ];
 
     const filtered = projects.filter((p) => p.filter.includes(activeFilter));
