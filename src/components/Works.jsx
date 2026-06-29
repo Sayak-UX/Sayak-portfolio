@@ -20,7 +20,7 @@ const Works = () => {
             badgeColor: null,
             year: '2025',
             description: 'A modern fintech mobile banking experience focused on clarity, trust, and seamless transactions — from onboarding to daily spend tracking.',
-            image: '/assets/mobile_app_project1_real.png',
+            image: '/assets/banking_app26_cover.png',
             link: '/project/banking',
             filter: ['All', 'Apps'],
             buttonText: 'View Case Study'
@@ -37,7 +37,7 @@ const Works = () => {
             badgeColor: '#1a56db',
             year: '2025',
             description: 'Frog Design laid the foundation. I came in at Phase 3 to fix what **4M users** were struggling with leading 6 designers across buying, servicing, and loyalty.',
-            image: '/assets/mobile app project2_real.png',
+            image: '/assets/airindia_app26_cover.png',
             link: '/project/air-india',
             filter: ['All', 'Apps', 'Redesigns'],
             buttonText: 'View Case Study'
@@ -55,7 +55,7 @@ const Works = () => {
             year: '2025',
             description: 'Co-designing an explainable AI-driven dashboard and real-time commuter framework for intelligent urban mobility and trust.',
             image: '/assets/traffic_thumb.png',
-            link: '/project/research-seminar',
+            link: 'https://smartflow-traffic-ai.vercel.app/',
             filter: ['All', 'Website', 'Design with AI'],
             buttonText: 'View Case Study'
         },
@@ -88,7 +88,7 @@ const Works = () => {
             badgeColor: null,
             year: '2025',
             description: 'A bold, brand-forward web design for a solar energy company — exploring identity systems, typography, and strong layout principles.',
-            image: '/assets/website_solar_bg.png',
+            image: '/assets/solarweb26_cover.png',
             link: '/project/website2',
             filter: ['All', 'Website'],
             buttonText: 'View Case Study'
@@ -186,6 +186,10 @@ const Works = () => {
                                                 <div className="work-row-btn disabled">
                                                     {project.buttonText}
                                                 </div>
+                                            ) : project.link.startsWith('http') ? (
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="work-row-btn">
+                                                    {project.buttonText}
+                                                </a>
                                             ) : (
                                                 <Link to={project.link} className="work-row-btn">
                                                     {project.buttonText}
@@ -205,6 +209,15 @@ const Works = () => {
                                                     loading="lazy"
                                                 />
                                             </div>
+                                        ) : project.link.startsWith('http') ? (
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="work-row-image-container">
+                                                <img
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    className="work-row-image"
+                                                    loading="lazy"
+                                                />
+                                            </a>
                                         ) : (
                                             <Link to={project.link} className="work-row-image-container">
                                                 <img
