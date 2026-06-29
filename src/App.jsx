@@ -6,7 +6,7 @@ import './App.css';
 import ChatButton from './components/ChatButton';
 import MusicPlayer from './components/MusicPlayer';
 import useSoundEffects from './components/useSoundEffects';
-
+import { SpeedInsights } from '@vercel/speed-insights/react';
 const About = lazy(() => import('./components/About'));
 const Works = lazy(() => import('./components/Works'));
 const ArtLens = lazy(() => import('./components/ArtLens'));
@@ -63,6 +63,7 @@ function App() {
                     <Route path="/project/research-seminar" element={<ResearchSeminarProjectPage />} />
 
                 </Routes>
+                <SpeedInsights />
             </div>
         </Router>
     );
