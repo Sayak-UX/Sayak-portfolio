@@ -10,11 +10,11 @@ import './PageLoader.css';
  *   category {string}  — small label shown below the bar
  *   delay    {number}  — ms before the loader starts fading out
  */
-const PageLoader = ({ title = 'Project', category = '', forceLoaded = false, delay = 4000 }) => {
+const PageLoader = ({ title = 'Project', category = '', forceLoaded, delay = 4000 }) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        if (forceLoaded) {
+        if (forceLoaded === true) {
             // Small transition delay so user can appreciate the typography entrance animation
             const timer = setTimeout(() => setLoaded(true), 400);
             return () => clearTimeout(timer);
@@ -22,9 +22,11 @@ const PageLoader = ({ title = 'Project', category = '', forceLoaded = false, del
     }, [forceLoaded]);
 
     useEffect(() => {
-        const timer = setTimeout(() => setLoaded(true), delay);
-        return () => clearTimeout(timer);
-    }, [delay]);
+        if (forceLoaded === undefined) {
+            const timer = setTimeout(() => setLoaded(true), delay);
+            return () => clearTimeout(timer);
+        }
+    }, [forceLoaded, delay]);
 
     // Split title into individual letter <span>s for staggered animation
     const letters = title.split('').map((char, i) => (

@@ -11,7 +11,7 @@ const ResearchSeminarProjectPage = () => {
 
     return (
         <div className="research-seminar-project-page meridian-page-theme">
-            <PageLoader title="Research Seminar" category="AI & UX Case Study" />
+            <PageLoader title="Research Seminar" category="AI & UX Case Study" forceLoaded={true} />
 
             {/* Main Wrapper */}
             <div className="meridian-container">

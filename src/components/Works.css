@@ -432,6 +432,27 @@
     object-fit: contain;
 }
 
+/* Specific styling for Mobile Bank App (project-1) and Air India Redesign (project-2) to fit full phone mockups */
+.project-1 .work-row-image-wrap,
+.project-2 .work-row-image-wrap {
+    aspect-ratio: 1529 / 1080;
+    background-color: #020916 !important; /* Matches dark background of mockups */
+}
+
+.project-1 .work-row-image,
+.project-2 .work-row-image {
+    object-fit: contain;
+}
+
+/* Specific styling for Solar Service Website (project-5) to fit full laptop mockup */
+.project-5 .work-row-image-wrap {
+    aspect-ratio: 1532 / 1080;
+    background-color: #031508 !important; /* Matches dark green background of solar cover */
+}
+
+.project-5 .work-row-image {
+    object-fit: contain;
+}
 
 .work-card-row:hover .work-row-image {
     transform: scale(1.04);
