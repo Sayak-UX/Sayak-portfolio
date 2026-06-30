@@ -66,12 +66,17 @@
     width: 0%;
     background: var(--text-main);
     border-radius: 100px;
-    animation: barFill 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes barFill {
-    from { width: 0%; }
-    to   { width: 100%; }
+/* ── Loader percentage label ────────────────────────────────── */
+.loader-percentage {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-main);
+    margin: -0.5rem 0 0.5rem;
+    letter-spacing: 0.05em;
 }
 
 /* ── Category label ────────────────────────────────────────── */
