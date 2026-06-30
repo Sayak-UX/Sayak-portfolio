@@ -36,7 +36,7 @@ const Works = () => {
             badge: 'Featured',
             badgeColor: '#1a56db',
             year: '2025',
-            description: 'Frog Design laid the foundation. I came in at Phase 3 to fix what **4M users** were struggling with leading 6 designers across buying, servicing, and loyalty.',
+            description: 'A comprehensive **UX audit and redesign** of the Air India mobile app — streamlining check-ins, booking flows, and loyalty programs to resolve core friction points for **over 4 million travellers**.',
             image: '/assets/airindia_app26_cover.png',
             link: '/project/air-india',
             filter: ['All', 'Apps', 'Redesigns'],
@@ -105,7 +105,7 @@ const Works = () => {
             badgeColor: null,
             year: '2025',
             description: 'An immersive and interactive music application designed for clean aesthetics, seamless transitions, and personalized audio spaces.',
-            image: '/assets/music application.svg',
+            image: '/assets/musicapp26_cover.png',
             link: '/project/music',
             filter: ['All', 'Apps'],
             buttonText: 'Full Story Coming Soon'

@@ -454,6 +454,16 @@
     object-fit: contain;
 }
 
+/* Specific styling for Ambient Music App (project-6) to fit full phone mockups */
+.project-6 .work-row-image-wrap {
+    aspect-ratio: 1532 / 1080;
+    background-color: #06020c !important; /* Matches dark purple background of mockup */
+}
+
+.project-6 .work-row-image {
+    object-fit: contain;
+}
+
 .work-card-row:hover .work-row-image {
     transform: scale(1.04);
 }
