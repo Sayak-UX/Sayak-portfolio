@@ -16,7 +16,7 @@ const BankingProjectPage = () => {
 
     return (
         <div className="banking-project-page">
-            <PageLoader title="Mobile Bank App" category="UI Exploration" forceLoaded={imgLoaded} fileSize={35.5} />
+            <PageLoader title="Mobile Bank App" category="UI Exploration" forceLoaded={imgLoaded} fileSize={35.5} number="01" />
             <Link to="/" className="back-button">
                 ← Back to Home
             </Link>

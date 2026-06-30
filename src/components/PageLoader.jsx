@@ -10,7 +10,7 @@ import './PageLoader.css';
  *   category {string}  — small label shown below the bar
  *   delay    {number}  — ms before the loader starts fading out
  */
-const PageLoader = ({ title = 'Project', category = '', forceLoaded, delay = 4000, fileSize }) => {
+const PageLoader = ({ title = 'Project', category = '', forceLoaded, delay = 4000, fileSize, number }) => {
     const [loaded, setLoaded] = useState(false);
     const [progress, setProgress] = useState(0);
 
@@ -82,6 +82,8 @@ const PageLoader = ({ title = 'Project', category = '', forceLoaded, delay = 400
 
     return (
         <div className={`page-loader${loaded ? ' loaded' : ''}`} aria-hidden={loaded}>
+            {number && <div className="loader-bg-number">{number}</div>}
+            {number && <span className="loader-number">{number}</span>}
             <div className="loader-wordmark">{letters}</div>
             <div className="loader-bar-wrap">
                 <div className="loader-bar-fill" style={{ width: `${progress}%` }} />

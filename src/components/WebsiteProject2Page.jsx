@@ -16,7 +16,7 @@ const WebsiteProject2Page = () => {
 
     return (
         <div className="website-project2-page">
-            <PageLoader title="Website Project 2" category="Web Design" forceLoaded={imgLoaded} fileSize={79.3} />
+            <PageLoader title="Website Project 2" category="Web Design" forceLoaded={imgLoaded} fileSize={79.3} number="05" />
             <Link to="/" className="back-button">
                 ← Back to Home
             </Link>

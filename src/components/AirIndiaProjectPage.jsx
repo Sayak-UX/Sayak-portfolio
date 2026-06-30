@@ -16,7 +16,7 @@ const AirIndiaProjectPage = () => {
 
     return (
         <div className="air-india-project-page">
-            <PageLoader title="Air India Redesign" category="Concept" forceLoaded={imgLoaded} fileSize={15.5} />
+            <PageLoader title="Air India Redesign" category="Concept" forceLoaded={imgLoaded} fileSize={15.5} number="02" />
             <Link to="/" className="back-button">
                 ← Back to Home
             </Link>
