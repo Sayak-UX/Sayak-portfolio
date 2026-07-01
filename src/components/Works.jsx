@@ -95,7 +95,7 @@ const Works = () => {
         },
         {
             id: 6,
-            title: 'Ambient Music App',
+            title: 'Music App',
             titleHighlight: 'Music App',
             category: 'Mobile',
             subcategory: 'UI Exploration',

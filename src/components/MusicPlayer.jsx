@@ -71,13 +71,13 @@ const MusicPlayer = () => {
                 onClick={togglePlay}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                title={isPlaying ? 'Pause ambient music' : 'Play ambient music'}
+                title={isPlaying ? 'Pause music' : 'Play music'}
                 role="button"
-                aria-label="Toggle ambient music"
+                aria-label="Toggle music"
             >
                 {/* Tooltip */}
                 <span className="music-tooltip">
-                    {isPlaying ? 'Pause' : 'Play ambient'}
+                    {isPlaying ? 'Pause' : 'Play lofi'}
                 </span>
 
                 {/* Vinyl disc */}
@@ -85,7 +85,7 @@ const MusicPlayer = () => {
 
                 {/* Track info */}
                 <div className="music-label">
-                    <span className="music-track-name">Ambient Lofi</span>
+                    <span className="music-track-name">Lofi</span>
                     <span className="music-status">
                         {isPlaying ? '▶ Now playing' : '❚❚ Paused'}
                     </span>
