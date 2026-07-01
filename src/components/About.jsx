@@ -48,7 +48,7 @@ const About = () => {
             <div className="container about-container">
                 <div className="about-text">
                     <BlurText
-                        text="I started my UX design journey in 2019 at DIT University, where I completed my Bachelor's in Design with a specialization in UI/UX."
+                        text="My creative journey started with art and canvas painting. Through colors, sketches, and visual storytelling, I developed a deep appreciation for design and human expression."
                         delay={50}
                         animateBy="words"
                         direction="top"
@@ -56,15 +56,7 @@ const About = () => {
                     />
                     <div style={{ height: '2rem' }}></div>
                     <BlurText
-                        text="In 2024, I started my Master’s in User Experience Design at Lovely Professional University, and I am currently on track to complete the program in 2026."
-                        delay={50}
-                        animateBy="words"
-                        direction="top"
-                        className="about-blur-text"
-                    />
-                    <div style={{ height: '2rem' }}></div>
-                    <BlurText
-                        text="Along this journey, I have also published a research paper, reflecting my dedication to combining academic insights with practical design."
+                        text="Over time, that passion evolved into UI/UX design, where I combine creativity, research, and problem-solving to craft meaningful digital experiences that are both intuitive and engaging."
                         delay={50}
                         animateBy="words"
                         direction="top"
