@@ -54,7 +54,7 @@ const Works = () => {
             badgeColor: '#10b981',
             year: '2025',
             description: 'Co-designing an explainable AI-driven dashboard and real-time commuter framework for intelligent urban mobility and trust.',
-            image: '/assets/traffic_thumb.png',
+            image: '/assets/ai_traffic_monitoring26_cover.png',
             link: 'https://smartflow-traffic-ai.vercel.app/',
             filter: ['All', 'Website', 'Design with AI'],
             buttonText: 'View Case Study'
