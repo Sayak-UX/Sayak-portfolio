@@ -10,8 +10,8 @@ const Works = () => {
     const projects = [
         {
             id: 1,
-            title: 'Mobile Bank App',
-            titleHighlight: 'Bank App',
+            title: 'One app. One banking.',
+            titleHighlight: 'One banking.',
             category: 'Mobile',
             subcategory: 'UI Exploration',
             eyebrow: '/ IOS & ANDROID',
