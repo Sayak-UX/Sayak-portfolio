@@ -425,6 +425,7 @@
 
 /* Specific styling for Adaptive Traffic AI mockup to prevent text crop */
 .project-3 .work-row-image-wrap {
+    aspect-ratio: 1532 / 1080;
     background-color: #768b5f !important;
 }
 
