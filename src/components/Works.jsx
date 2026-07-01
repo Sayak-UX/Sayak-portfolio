@@ -71,7 +71,7 @@ const Works = () => {
             badgeColor: '#6b21a8',
             year: '2025',
             description: 'A heuristic-driven redesign of a government digital portal to improve usability, accessibility standards, and citizen trust across diverse demographics.',
-            image: '/assets/website_background_1_real.png',
+            image: '/assets/govtweb26_cover.png',
             link: '/project/website1',
             filter: ['All', 'Website', 'Redesigns'],
             buttonText: 'View Case Study'
