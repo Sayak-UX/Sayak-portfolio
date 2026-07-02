@@ -10,22 +10,28 @@
 }
 
 .about-blur-text {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-muted);
     margin-bottom: 0;
-    /* Spacing handled by spacer divs */
+}
+
+.about-title {
+    font-family: var(--font-body);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    margin: 0;
 }
 
 .about-visual {
     position: relative;
     width: 100%;
-    /* Removed fixed aspect ratio to let image define it, or keep it if consistent size is needed */
-    /* aspect-ratio: 4/5; */
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -33,159 +39,33 @@
     width: 100%;
     height: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.profile-img-container {
+    width: 260px;
+    height: 260px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #e0e0e0;
+    position: relative;
+}
+
+[data-theme='dark'] .profile-img-container {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: #2a2a2a;
 }
 
 .about-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%) contrast(1.1) brightness(1.0);
     display: block;
-    border-radius: 0;
-}
-
-/* ── Profile Card Frame (Camera Viewfinder Style) ── */
-.profile-card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    gap: 0;
-    border: 2px solid #1a1a1a;
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.15s ease;
-    user-select: none;
-}
-
-/* Scale bounce on click */
-.profile-card:active {
-    transform: scale(0.97);
-}
-
-/* Shutter flash overlay */
-.profile-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #ffffff;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 10;
-    transition: opacity 0.05s ease;
-}
-
-.profile-card.shutter-flash::after {
-    animation: shutter-flash 0.35s ease forwards;
-}
-
-@keyframes shutter-flash {
-    0%   { opacity: 0.7; }
-    40%  { opacity: 0.3; }
-    100% { opacity: 0; }
-}
-
-/* Focus ring ripple */
-@keyframes focus-ring {
-    0%   { transform: scale(1);   opacity: 0.6; }
-    100% { transform: scale(1.06); opacity: 0; }
-}
-
-.profile-card.shutter-flash {
-    animation: card-bounce 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
-}
-
-@keyframes card-bounce {
-    0%   { transform: scale(1); }
-    25%  { transform: scale(0.96); }
-    55%  { transform: scale(1.02); }
-    80%  { transform: scale(0.99); }
-    100% { transform: scale(1); }
-}
-
-[data-theme='dark'] .profile-card {
-    border-color: #e8e3d8;
-}
-
-.profile-img-wrap {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-/* White viewfinder corner brackets — inside the photo */
-.profile-corner {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    z-index: 3;
-    pointer-events: none;
-}
-
-.profile-corner.tl {
-    top: 16px; left: 16px;
-    border-top: 2.5px solid #ffffff;
-    border-left: 2.5px solid #ffffff;
-}
-.profile-corner.tr {
-    top: 16px; right: 16px;
-    border-top: 2.5px solid #ffffff;
-    border-right: 2.5px solid #ffffff;
-}
-.profile-corner.bl {
-    bottom: 16px; left: 16px;
-    border-bottom: 2.5px solid #ffffff;
-    border-left: 2.5px solid #ffffff;
-}
-.profile-corner.br {
-    bottom: 16px; right: 16px;
-    border-bottom: 2.5px solid #ffffff;
-    border-right: 2.5px solid #ffffff;
-}
-
-/* Bottom label bar — light background, dark text */
-.profile-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.85rem 1.1rem;
-    background: #f0ece6;
-    gap: 1rem;
-    border-top: 2px solid #1a1a1a;
-}
-
-[data-theme='dark'] .profile-label {
-    background: #1e1e1e;
-    border-top-color: #e8e3d8;
-}
-
-.profile-name {
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #1a1a1a;
-}
-
-[data-theme='dark'] .profile-name {
-    color: #f0ece6;
-}
-
-.profile-role {
-    font-family: var(--font-body);
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #666;
-    white-space: nowrap;
-}
-
-[data-theme='dark'] .profile-role {
-    color: #999;
+    transition: filter 0.3s ease;
 }
 
 /* New Project Showcase Styles */

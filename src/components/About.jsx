@@ -46,39 +46,31 @@ const About = () => {
     return (
         <section id="about" className="about-section section-padding" ref={sectionRef}>
             <div className="container about-container">
-                <div className="about-text">
-                    <BlurText
-                        text="My creative journey started with art and canvas painting. Through colors, sketches, and visual storytelling, I developed a deep appreciation for design and human expression."
-                        delay={50}
-                        animateBy="words"
-                        direction="top"
-                        className="about-blur-text"
-                    />
-                    <div style={{ height: '2rem' }}></div>
-                    <BlurText
-                        text="Over time, that passion evolved into UI/UX design, where I combine creativity, research, and problem-solving to craft meaningful digital experiences that are both intuitive and engaging."
-                        delay={50}
-                        animateBy="words"
-                        direction="top"
-                        className="about-blur-text"
-                    />
-                </div>
                 <div className="about-visual reveal-text" style={{ transitionDelay: '0.3s' }}>
                     <div className="visual-frame">
-                        <div className="profile-card" ref={cardRef} onClick={handleShutter}>
-                            <div className="profile-img-wrap">
-                                <img src="/assets/sayak image 4.svg" alt="Sayak" className="about-image" loading="lazy" />
-                                <div className="profile-corner tl" />
-                                <div className="profile-corner tr" />
-                                <div className="profile-corner bl" />
-                                <div className="profile-corner br" />
-                            </div>
-                            <div className="profile-label">
-                                <span className="profile-name">Sayak Sarkar</span>
-                                <span className="profile-role">UI / UX Designer</span>
-                            </div>
+                        <div className="profile-img-container">
+                            <img src="/assets/sayak image 4.svg" alt="Sayak" className="about-image" loading="lazy" />
                         </div>
                     </div>
+                </div>
+                <div className="about-text">
+                    <h2 className="about-title">Hey there, I'm Sayak</h2>
+                    <div style={{ height: '1rem' }}></div>
+                    <BlurText
+                        text="My creative journey started with art and canvas painting. Through colors, sketches, and visual storytelling, I developed a deep appreciation for design and human expression."
+                        delay={40}
+                        animateBy="words"
+                        direction="top"
+                        className="about-blur-text"
+                    />
+                    <div style={{ height: '1.5rem' }}></div>
+                    <BlurText
+                        text="Over time, that passion evolved into UI/UX design, where I combine creativity, research, and problem-solving to craft meaningful digital experiences that are both intuitive and engaging."
+                        delay={40}
+                        animateBy="words"
+                        direction="top"
+                        className="about-blur-text"
+                    />
                 </div>
             </div>
         </section>

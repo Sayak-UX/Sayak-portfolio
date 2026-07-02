@@ -8,6 +8,7 @@ import MusicPlayer from './components/MusicPlayer';
 import useSoundEffects from './components/useSoundEffects';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 const About = lazy(() => import('./components/About'));
+const Education = lazy(() => import('./components/Education'));
 const Works = lazy(() => import('./components/Works'));
 const ArtLens = lazy(() => import('./components/ArtLens'));
 const Journey = lazy(() => import('./components/Journey'));
@@ -75,6 +76,7 @@ const Home = () => (
         <Hero />
         <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
             <About />
+            <Education />
             <Works />
             <Tools />
             <Journey />
