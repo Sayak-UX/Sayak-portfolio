@@ -164,8 +164,12 @@ const Works = () => {
 
                         {/* Stack of row cards */}
                         <div className="works-list-container">
-                            {groupProjects.map((project) => (
-                                <article key={project.id} className={`work-card-row project-${project.id}`}>
+                            {groupProjects.map((project, idx) => (
+                                <article 
+                                    key={project.id} 
+                                    className={`work-card-row project-${project.id}`}
+                                    style={{ '--card-index': idx }}
+                                >
                                     {/* ── Left Content column ── */}
                                     <div className="work-row-content">
                                         <div className="work-row-top-info">
