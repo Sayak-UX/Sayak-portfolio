@@ -72,7 +72,6 @@ const ArtLens = () => {
     const galleryItems = [
         { id: 1, src: '/assets/photography/gallery-1.jpeg', title: 'Perspective I' },
         { id: 2, src: '/assets/photography/gallery-2.jpeg', title: 'Urban Echoes' },
-        { id: 3, src: '/assets/photography/gallery-3.jpeg', title: 'Silent Light' },
         { id: 4, src: '/assets/photography/gallery-4.jpeg', title: 'Composition IV' },
         { id: 5, src: '/assets/photography/gallery-5.jpeg', title: 'Shadow Play' },
         { id: 6, src: '/assets/photography/gallery-6.jpeg', title: "Nature's Form" },
