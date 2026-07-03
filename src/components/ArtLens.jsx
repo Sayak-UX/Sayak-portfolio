@@ -82,12 +82,6 @@ const ArtLens = () => {
 
     const [lightboxIndex, setLightboxIndex] = useState(null);
 
-    const galleryRef = useRef(null);
-    const isDragging = useRef(false);
-    const startX = useRef(0);
-    const scrollLeft = useRef(0);
-    const dragDistance = useRef(0);
-
     const openLightbox = (index) => setLightboxIndex(index);
     const closeLightbox = useCallback(() => setLightboxIndex(null), []);
     const prevPhoto = useCallback(() =>
@@ -95,27 +89,8 @@ const ArtLens = () => {
     const nextPhoto = useCallback(() =>
         setLightboxIndex((i) => (i + 1) % galleryItems.length), []);
 
-    /* Drag-to-scroll */
-    const onMouseDown = (e) => {
-        isDragging.current = true;
-        dragDistance.current = 0;
-        startX.current = e.pageX - galleryRef.current.offsetLeft;
-        scrollLeft.current = galleryRef.current.scrollLeft;
-    };
-    const onMouseLeave = () => { isDragging.current = false; };
-    const onMouseUp = () => { isDragging.current = false; };
-    const onMouseMove = (e) => {
-        if (!isDragging.current) return;
-        e.preventDefault();
-        const x = e.pageX - galleryRef.current.offsetLeft;
-        const walk = (x - startX.current) * 1.5;
-        dragDistance.current = Math.abs(walk);
-        galleryRef.current.scrollLeft = scrollLeft.current - walk;
-    };
-
-    /* Only open lightbox if not dragging */
     const handleItemClick = (index) => {
-        if (dragDistance.current < 6) openLightbox(index);
+        openLightbox(index);
     };
 
     return (
@@ -133,33 +108,53 @@ const ArtLens = () => {
                 </div>
 
                 <div className="art-gallery-wrapper">
-                    <div
-                        className="art-gallery"
-                        ref={galleryRef}
-                        onMouseDown={onMouseDown}
-                        onMouseLeave={onMouseLeave}
-                        onMouseUp={onMouseUp}
-                        onMouseMove={onMouseMove}
-                    >
-                        {galleryItems.map((item, index) => (
-                            <div
-                                key={item.id}
-                                className="gallery-item"
-                                onClick={() => handleItemClick(index)}
-                            >
-                                <div className="gallery-overlay" />
-                                <img
-                                    src={item.src}
-                                    alt={item.title}
-                                    className="gallery-image"
-                                    loading="lazy"
-                                    draggable="false"
-                                />
-                                <div className="gallery-info">
-                                    <h3 className="gallery-title">{item.title}</h3>
-                                </div>
+                    <div className="art-gallery-marquee">
+                        <div className="art-marquee-track">
+                            {/* Group 1 */}
+                            <div className="art-marquee-group">
+                                {galleryItems.map((item, index) => (
+                                    <div
+                                        key={`g1-${item.id}`}
+                                        className="gallery-item"
+                                        onClick={() => handleItemClick(index)}
+                                    >
+                                        <div className="gallery-overlay" />
+                                        <img
+                                            src={item.src}
+                                            alt={item.title}
+                                            className="gallery-image"
+                                            loading="lazy"
+                                            draggable="false"
+                                        />
+                                        <div className="gallery-info">
+                                            <h3 className="gallery-title">{item.title}</h3>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                            {/* Group 2 (Duplicate for seamless loop) */}
+                            <div className="art-marquee-group" aria-hidden="true">
+                                {galleryItems.map((item, index) => (
+                                    <div
+                                        key={`g2-${item.id}`}
+                                        className="gallery-item"
+                                        onClick={() => handleItemClick(index)}
+                                    >
+                                        <div className="gallery-overlay" />
+                                        <img
+                                            src={item.src}
+                                            alt={item.title}
+                                            className="gallery-image"
+                                            loading="lazy"
+                                            draggable="false"
+                                        />
+                                        <div className="gallery-info">
+                                            <h3 className="gallery-title">{item.title}</h3>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

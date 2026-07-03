@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
@@ -123,11 +122,24 @@ const Navbar = () => {
                     <button onClick={() => scrollToSection('work')}>My works</button>
 
                     <a href="/assets/Sayak Sarkar CV3.pdf" download className="btn-download-cv">
-                        Download CV
+                        Resume
                     </a>
 
                     <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
-                        {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                        <svg className="theme-paint-bucket" viewBox="0 0 24 24" width="20" height="20" fill="none">
+                            <g className="bucket-group">
+                                {/* Bucket handle */}
+                                <path className="bucket-handle" d="M19 9A7 7 0 0 0 5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+                                {/* Paint inside bucket */}
+                                <path className="bucket-paint" d="M6 10.5c1.5-0.5 3.5 0.5 5 0s3.5-0.5 5 0l0.5 3.5H7.5l-1.5-3.5z" stroke="none" fill="var(--paint-color)" />
+                                {/* Bucket body */}
+                                <path className="bucket-body" d="M5 9l2 9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l2-9" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
+                                {/* Bucket lip */}
+                                <ellipse className="bucket-lip" cx="12" cy="9" rx="7" ry="1.5" stroke="currentColor" strokeWidth="2" fill="none" />
+                            </g>
+                            {/* Droplet outside the rotated group */}
+                            <path className="bucket-drop" d="M19.5 14c0 0.8-.6 1.5-1.5 1.5s-1.5-.7-1.5-1.9c0-1.2 1.5-3.4 1.5-3.4s1.5 2.2 1.5 3.8z" stroke="none" fill="var(--paint-color)" />
+                        </svg>
                     </button>
                 </div>
 

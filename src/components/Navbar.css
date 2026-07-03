@@ -136,14 +136,82 @@
     padding: 0.5rem;
     border-radius: 50%;
     transition: background-color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    --paint-color: #5b9bda;
 }
 
 .theme-toggle:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+[data-theme='dark'] .theme-toggle {
+    --paint-color: #49c664;
+}
+
+[data-theme='dark'] .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
 .theme-toggle::after {
     display: none !important;
+}
+
+/* Paint Bucket Design & Animation */
+.theme-paint-bucket {
+    overflow: visible;
+}
+
+.bucket-group {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: 12px 12px;
+}
+
+.bucket-handle {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: 12px 9px;
+}
+
+.bucket-drop {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.3);
+    transform-origin: 18px 11px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover States & Animations */
+.theme-toggle:hover .bucket-group {
+    transform: rotate(35deg) translate(1px, -1px);
+}
+
+.theme-toggle:hover .bucket-handle {
+    transform: rotate(-35deg);
+}
+
+.theme-toggle:hover .bucket-drop {
+    animation: paintDrip 1.2s infinite ease-in;
+}
+
+@keyframes paintDrip {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px) scale(0.3);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(12px) scale(0.9);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.3);
+    }
 }
 
 .navbar-toggle {

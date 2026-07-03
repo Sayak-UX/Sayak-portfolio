@@ -18,7 +18,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
@@ -51,7 +51,7 @@
     overflow: hidden;
     width: 100%;
     position: relative;
-    padding: 2rem 0;
+    padding: 1rem 0 2rem;
     /* Soft edge fading using mask-image - reduced range for maximum visibility */
     mask-image: linear-gradient(to right, transparent, white 2%, white 98%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, white 2%, white 98%, transparent);

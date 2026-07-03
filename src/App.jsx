@@ -76,9 +76,9 @@ const Home = () => (
         <Hero />
         <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
             <About />
-            <Education />
-            <Works />
             <Tools />
+            <Works />
+            <Education />
             <Journey />
             <ArtLens />
             <Collab />

@@ -15,7 +15,7 @@ const About = () => {
         // 🔊 Play real camera mp3
         const audio = shutterAudio.current;
         audio.currentTime = 0;
-        audio.play().catch(() => {});
+        audio.play().catch(() => { });
         // 📸 Visual animation
         card.classList.remove('shutter-flash');
         void card.offsetWidth;
@@ -54,7 +54,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="about-text">
-                    <h2 className="about-title">Hey there, I'm Sayak</h2>
+                    <h2 className="about-title"></h2>
                     <div style={{ height: '1rem' }}></div>
                     <BlurText
                         text="My creative journey started with art and canvas painting. Through colors, sketches, and visual storytelling, I developed a deep appreciation for design and human expression."
