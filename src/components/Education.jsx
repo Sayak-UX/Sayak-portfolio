@@ -82,10 +82,14 @@ const Education = () => {
                                 onClick={() => setActiveCard(idx)}
                                 aria-current={activeCard === idx ? 'true' : 'false'}
                             >
-                                <span className="milestone-node" />
-                                <span className="milestone-year">{edu.year}</span>
-                                <span className="milestone-degree">{edu.degree.split('—')[0].trim()}</span>
-                                <span className="milestone-inst">{edu.institution.split(',')[0]}</span>
+                                <span className="milestone-node">
+                                    <span className="milestone-node-pulse" />
+                                </span>
+                                <div className="milestone-text-group">
+                                    <span className="milestone-year">{edu.year}</span>
+                                    <span className="milestone-degree">{edu.degree.split('—')[0].trim()}</span>
+                                    <span className="milestone-inst">{edu.institution.split(',')[0]}</span>
+                                </div>
                             </button>
                         ))}
                     </div>
@@ -93,18 +97,32 @@ const Education = () => {
                     {/* Right Column: Detailed Showcase Panel */}
                     <div className="education-showcase-panel">
                         <div className="showcase-card">
-                            {/* Keying this block ensures it animations re-run when content changes */}
+                            {/* Keying this block ensures its animations re-run when content changes */}
                             <div className="showcase-card-inner" key={activeCard}>
-                                <span className="showcase-year">{selectedEdu.year}</span>
-                                <h3 className="showcase-degree">{selectedEdu.degree}</h3>
-                                <p className="showcase-inst">{selectedEdu.institution}</p>
-                                <span className="showcase-grade-badge">{selectedEdu.grade}</span>
+                                <div className="showcase-field-wrap anim-slide-up-1">
+                                    <span className="showcase-year">{selectedEdu.year}</span>
+                                </div>
+                                <div className="showcase-field-wrap anim-slide-up-2">
+                                    <h3 className="showcase-degree">{selectedEdu.degree}</h3>
+                                </div>
+                                <div className="showcase-field-wrap anim-slide-up-2">
+                                    <p className="showcase-inst">{selectedEdu.institution}</p>
+                                </div>
+                                <div className="showcase-field-wrap anim-slide-up-3">
+                                    <span className="showcase-grade-badge">{selectedEdu.grade}</span>
+                                </div>
 
-                                <div className="showcase-details-section">
+                                <div className="showcase-details-section anim-slide-up-4">
                                     <h4 className="showcase-details-title">Key Focus & Accomplishments</h4>
                                     <ul className="showcase-bullets">
                                         {selectedEdu.bullets.map((bullet, bulletIdx) => (
-                                            <li key={bulletIdx}>{bullet}</li>
+                                            <li 
+                                                key={bulletIdx} 
+                                                className={`bullet-item-anim`}
+                                                style={{ '--bullet-delay': `${bulletIdx * 0.1}s` }}
+                                            >
+                                                {bullet}
+                                            </li>
                                         ))}
                                     </ul>
                                 </div>
