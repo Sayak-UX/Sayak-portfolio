@@ -1,4 +1,4 @@
-/* Redesigned Education Timeline - Bespoke Split Layout */
+/* Redesigned Education Timeline - Linear Layout */
 .education-section {
     position: relative;
     background-color: var(--bg-color);
@@ -7,12 +7,12 @@
 }
 
 .education-container {
-    max-width: 1200px;
+    max-width: 900px; /* Centered content, narrower for vertical timeline */
     margin: 0 auto;
 }
 
 .education-header {
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     text-align: left;
 }
 
@@ -35,234 +35,124 @@
     margin: 0;
 }
 
-/* Split Layout Grid */
-.education-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 5rem;
-    align-items: start;
-    position: relative;
-}
-
-/* Left Timeline Column */
-.education-timeline-list {
+/* Linear Timeline Container */
+.education-timeline {
     position: relative;
     padding-left: 2.5rem;
 }
 
-/* Timeline Vertical Line with Gradient Glow */
-.education-timeline-list::before {
+/* Timeline Vertical Line */
+.education-timeline::before {
     content: '';
     position: absolute;
-    top: 1.5rem;
-    bottom: 1.5rem;
+    top: 1rem;
+    bottom: 1rem;
     left: 0.5rem;
     width: 2px;
-    background: linear-gradient(to bottom, var(--accent) 0%, var(--clay) 50%, rgba(0, 0, 0, 0.05) 100%);
+    background: linear-gradient(to bottom, var(--accent) 0%, var(--clay) 60%, rgba(0, 0, 0, 0.05) 100%);
     box-shadow: 0 0 8px rgba(93, 115, 126, 0.2);
 }
 
-[data-theme='dark'] .education-timeline-list::before {
+[data-theme='dark'] .education-timeline::before {
     background: linear-gradient(to bottom, var(--accent) 0%, var(--clay) 60%, rgba(255, 255, 255, 0.05) 100%);
     box-shadow: 0 0 12px rgba(138, 162, 179, 0.25);
 }
 
-/* Milestone Cards */
-.education-milestone-btn {
+/* Timeline Item containing Marker and Content */
+.education-item {
     position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    border-radius: 16px;
-    text-align: left;
-    width: 100%;
-    padding: 1.5rem;
-    margin-bottom: 1.25rem;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0.55;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-theme='dark'] .education-milestone-btn {
-    background: rgba(255, 255, 255, 0.01);
-    border-color: rgba(255, 255, 255, 0.02);
-}
-
-.education-milestone-btn:hover {
-    opacity: 0.85;
-    transform: translateX(6px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(0, 0, 0, 0.06);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
-}
-
-[data-theme='dark'] .education-milestone-btn:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Active Card Style (Premium Glow & Border Accent) */
-.education-milestone-btn.active {
+.education-item.visible {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.65);
-    border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    transform: scale(1.02) translateX(4px);
+    transform: translateY(0);
 }
 
-[data-theme='dark'] .education-milestone-btn.active {
-    background: rgba(35, 35, 35, 0.65);
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+.education-item:last-child {
+    margin-bottom: 0;
 }
 
-.milestone-text-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-/* Node marker on the line */
-.milestone-node {
+/* Marker positioning on the line */
+.education-timeline-marker {
     position: absolute;
     left: -2.35rem;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0.5rem;
+    z-index: 2;
+}
+
+.education-marker-node {
     width: 14px;
     height: 14px;
     border-radius: 50%;
     background: var(--bg-color);
     border: 2px solid var(--accent);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 2;
     box-shadow: 0 0 0 4px var(--bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.milestone-node-pulse {
+.education-marker-node-inner {
     width: 100%;
     height: 100%;
     background: var(--accent);
     border-radius: 50%;
     transform: scale(0);
     transition: transform 0.4s ease;
-    opacity: 0.8;
 }
 
-.education-milestone-btn.active .milestone-node {
+.education-item.visible .education-marker-node {
     border-color: var(--text-main);
-    transform: translateY(-50%) scale(1.3);
+    transform: scale(1.3);
     box-shadow: 0 0 0 5px var(--bg-color), 0 0 12px var(--accent);
 }
 
-.education-milestone-btn.active .milestone-node-pulse {
+.education-item.visible .education-marker-node-inner {
     transform: scale(1);
     background: var(--text-main);
 }
 
-/* Inactive Node Hover Pulse */
-.education-milestone-btn:not(.active):hover .milestone-node {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 5px var(--bg-color), 0 0 8px rgba(93, 115, 126, 0.4);
-}
-
-.milestone-year {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 0.35rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-.milestone-degree {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    color: var(--text-main);
-    line-height: 1.25;
-    font-weight: 600;
-}
-
-.milestone-inst {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
-}
-
-/* Right Detail Column */
-.education-showcase-panel {
-    position: sticky;
-    top: 120px;
-}
-
-/* Advanced Glassmorphic Card */
-.showcase-card {
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 28px;
-    padding: 3.5rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    min-height: 420px;
+/* Content block styles (previously inside showcase card but now flat / clean) */
+.education-content-block {
     display: flex;
     flex-direction: column;
-    position: relative;
-    overflow: hidden;
 }
 
-[data-theme='dark'] .showcase-card {
-    background: rgba(28, 28, 28, 0.45);
-    border-color: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-/* Staggered Animations for Fields */
-.showcase-field-wrap {
-    overflow: hidden;
-    margin-bottom: 0.5rem;
-}
-
-.showcase-year {
+.education-year {
     font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    display: inline-block;
+    margin-bottom: 0.5rem;
 }
 
-.showcase-degree {
+.education-degree {
     font-family: var(--font-display);
     font-size: 2.2rem;
     color: var(--text-main);
     font-weight: 500;
     line-height: 1.2;
-    margin-bottom: 0.25rem;
+    margin: 0 0 0.5rem 0;
 }
 
-.showcase-inst {
+.education-inst {
     font-family: var(--font-body);
     font-size: 1.05rem;
     color: var(--text-muted);
     font-weight: 500;
-    margin-bottom: 1.25rem;
+    margin: 0 0 1.25rem 0;
 }
 
 /* Grade Badge Capsule with Glow */
-.showcase-grade-badge {
+.education-grade-badge {
+    align-self: flex-start;
     background: rgba(93, 115, 126, 0.06);
     color: var(--accent);
     padding: 6px 16px;
@@ -270,13 +160,13 @@
     font-size: 0.85rem;
     font-weight: 700;
     display: inline-block;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border: 1px solid rgba(93, 115, 126, 0.12);
     letter-spacing: 0.03em;
     box-shadow: 0 2px 10px rgba(93, 115, 126, 0.03);
 }
 
-[data-theme='dark'] .showcase-grade-badge {
+[data-theme='dark'] .education-grade-badge {
     background: rgba(138, 162, 179, 0.08);
     border-color: rgba(138, 162, 179, 0.18);
     color: #c9d7e0;
@@ -284,34 +174,33 @@
 }
 
 /* Bullet Details Section */
-.showcase-details-section {
+.education-bullets-section {
     border-top: 1px dashed var(--clay);
-    padding-top: 2rem;
-    margin-top: auto;
+    padding-top: 1.25rem;
+    margin-top: 0.5rem;
 }
 
-[data-theme='dark'] .showcase-details-section {
+[data-theme='dark'] .education-bullets-section {
     border-top-color: rgba(255, 255, 255, 0.08);
 }
 
-.showcase-details-title {
+.education-bullets-title {
     font-family: var(--font-body);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--text-muted);
     font-weight: 700;
-    margin-bottom: 1.25rem;
+    margin: 0 0 1.25rem 0;
 }
 
-.showcase-bullets {
+.education-bullets-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* Bullet item animations */
-.showcase-bullets li {
+.education-bullet-item {
     font-family: var(--font-body);
     font-size: 1.05rem;
     color: var(--text-muted);
@@ -321,7 +210,7 @@
     padding-left: 1.6rem;
 }
 
-.showcase-bullets li::before {
+.education-bullet-item::before {
     content: '';
     position: absolute;
     left: 0.1rem;
@@ -333,88 +222,13 @@
     box-shadow: 0 0 6px var(--accent);
 }
 
-/* Animations */
-.anim-slide-up-1 {
-    opacity: 0;
-    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.anim-slide-up-2 {
-    opacity: 0;
-    animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.anim-slide-up-3 {
-    opacity: 0;
-    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.anim-slide-up-4 {
-    opacity: 0;
-    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.bullet-item-anim {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: slideUpSimple 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--bullet-delay, 0s);
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideUpSimple {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Responsive adjustments */
-@media (max-width: 900px) {
-    .education-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-    }
-
-    .education-showcase-panel {
-        position: static;
-    }
-
-    .showcase-card {
-        min-height: auto;
-        padding: 2.5rem;
-    }
-    
-    .education-milestone-btn {
-        padding: 1.25rem;
-    }
-}
-
 @media (max-width: 600px) {
     .education-title {
         font-size: 2.5rem;
     }
 
-    .milestone-degree {
-        font-size: 1.3rem;
-    }
-
-    .showcase-degree {
+    .education-degree {
         font-size: 1.8rem;
-    }
-    
-    .showcase-card {
-        padding: 1.75rem;
     }
 }
