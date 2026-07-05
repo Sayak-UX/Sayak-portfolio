@@ -13,323 +13,24 @@
     padding: 0 2rem;
 }
 
-/* Intro Split Layout */
-.art-intro-wrapper {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    margin-bottom: 5rem;
-}
-
-.art-header-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.art-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    margin-bottom: 0.75rem;
+.art-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .art-tagline {
     font-family: var(--font-body);
-    font-size: 1.2rem;
-    color: var(--text);
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-.art-paragraph {
-    font-family: var(--font-body);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0;
+    margin-top: 1rem;
     font-weight: 300;
+    letter-spacing: 0.02em;
 }
 
-/* Card Visual Container */
-.art-visual-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* 3D Tilt Wrapper */
-.art-card-3d-wrapper {
-    perspective: 1200px;
-    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.25));
-    transition: filter 0.3s ease;
-}
-
-[data-theme='dark'] .art-card-3d-wrapper {
-    filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.6));
-}
-
-.art-card-3d-wrapper:hover {
-    filter: drop-shadow(0 35px 80px rgba(0, 0, 0, 0.35));
-}
-
-[data-theme='dark'] .art-card-3d-wrapper:hover {
-    filter: drop-shadow(0 35px 90px rgba(0, 0, 0, 0.7));
-}
-
-/* 35mm Film + Memory Card Hybrid Design */
-.film-memory-card {
-    position: relative;
-    width: 250px;
-    height: 350px;
-    background: linear-gradient(135deg, #2c2c2c 0%, #151515 100%);
-    border-radius: 16px;
-    padding: 14px;
-    box-sizing: border-box;
-    clip-path: polygon(0% 0%, 82% 0%, 100% 13%, 100% 100%, 0% 100%);
-    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-    transition: transform 0.15s ease-out;
-    transform-style: preserve-3d;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
-    
-    /* Plastic texture look and highlights */
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.15),
-        inset 0 -1px 3px rgba(0, 0, 0, 0.8);
-}
-
-/* Slider Lock Notch (SD card style) */
-.card-lock-slider {
-    position: absolute;
-    left: 0;
-    top: 75px;
-    width: 5px;
-    height: 28px;
-    background: #0d0d0d;
-    border-radius: 0 3px 3px 0;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
-}
-
-.card-lock-slider::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    width: 4px;
-    height: 9px;
-    background: #facc15; /* Yellow slider button */
-    border-radius: 1px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
-}
-
-/* Gold Pins */
-.card-pins {
-    position: absolute;
-    top: 14px;
-    right: 20px;
-    display: flex;
-    gap: 3.5px;
-}
-
-.pin {
-    width: 5px;
-    height: 16px;
-    background: linear-gradient(to bottom, #f3e098 0%, #d4af37 40%, #aa7c11 100%);
-    border-radius: 0.5px;
-    box-shadow: 
-        inset 0 1px 1px rgba(0,0,0,0.4),
-        0 1px 0 rgba(255,255,255,0.05);
-}
-
-/* Canister Label */
-.card-label {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    background: linear-gradient(to bottom, #f3b61f 0%, #f7c348 35%, #fff 35%, #fff 100%);
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 12px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 
-        inset 0 1px 2px rgba(255,255,255,0.4),
-        0 2px 8px rgba(0,0,0,0.3);
-}
-
-/* Holographic / metallic shimmer on label */
-.card-label::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        105deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.4) 45%,
-        rgba(255, 255, 255, 0.8) 50%,
-        rgba(255, 255, 255, 0.4) 55%,
-        transparent 70%
-    );
-    background-size: 200% 100%;
-    background-position: var(--shimmer-pos, 150%) 0;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    z-index: 2;
-    transition: background-position 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.film-memory-card:hover .card-label::before {
-    background-position: -50% 0;
-}
-
-/* Label Brand Section */
-.label-brand {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 900;
-}
-
-.brand-logo {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    color: #111;
-    letter-spacing: 0.05em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.brand-type {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    background: #000;
-    color: #f3b61f;
-    padding: 2px 5px;
-    border-radius: 3px;
-    letter-spacing: 0.1em;
-}
-
-/* Red vintage accent stripe */
-.label-stripe {
-    position: absolute;
-    top: 35%;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: #d92d20;
-    z-index: 1;
-}
-
-/* Info Section (Analog ISO/Digital Capacity) */
-.label-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 55px; /* offset the header yellow block */
-}
-
-.info-exposure {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #111;
-    line-height: 1;
-    letter-spacing: -0.02em;
-}
-
-.info-capacity {
-    font-family: var(--font-body);
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #111;
-    line-height: 1;
-}
-
-.label-subtext {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    color: #666;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    margin-top: 2px;
-}
-
-/* Barcode */
-.label-barcode {
-    width: 100%;
-    height: 26px;
-    background: repeating-linear-gradient(
-        90deg,
-        #111,
-        #111 2px,
-        #fff 2px,
-        #fff 3px,
-        #111 3px,
-        #111 5px,
-        #fff 5px,
-        #fff 7px
-    );
-    border-top: 1px solid #ddd;
-    margin-top: 10px;
-    opacity: 0.9;
-}
-
-/* Gloss Glass Sheen Over Card */
-.card-gloss-sheen {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        circle at var(--mx, 50%) var(--my, 50%),
-        rgba(255, 255, 255, 0.28) 0%,
-        rgba(255, 255, 255, 0) 55%
-    );
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 10;
-}
-
-.film-memory-card:hover .card-gloss-sheen {
-    opacity: 1;
-}
-
-/* Reflex glare reflection diagonal line */
-.film-memory-card::after {
-    content: '';
-    position: absolute;
-    top: -150%;
-    left: -150%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0) 45%,
-        rgba(255, 255, 255, 0.08) 48%,
-        rgba(255, 255, 255, 0.15) 50%,
-        rgba(255, 255, 255, 0.08) 52%,
-        rgba(255, 255, 255, 0) 55%
-    );
-    transform: rotate(30deg);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-    z-index: 11;
-}
-
-.film-memory-card:hover::after {
-    transform: translate(30%, 30%) rotate(30deg);
-}
-
-/* Gallery — Horizontal Scroll Strip */
+/* Gallery — Horizontal Scroll Strip (Film Roll Style) */
 .art-gallery-wrapper {
     position: relative;
     width: 100%;
@@ -350,16 +51,101 @@
     );
 }
 
+/* Glassy reflective reflection overlay for the entire film strip wrapper */
+.art-gallery-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        115deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 35%,
+        rgba(255, 255, 255, 0.05) 42%,
+        rgba(255, 255, 255, 0.12) 44%,
+        rgba(255, 255, 255, 0.05) 46%,
+        rgba(255, 255, 255, 0) 53%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 15;
+}
+
 .art-gallery-marquee {
     width: 100%;
     overflow: hidden;
-    padding: 1.5rem 0 2.5rem;
+    background: linear-gradient(to bottom, #070707 0%, #151515 50%, #070707 100%);
+    box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.95), 
+                inset 0 -20px 40px rgba(0, 0, 0, 0.95),
+                0 15px 30px rgba(0, 0, 0, 0.35);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 0;
+    position: relative;
+}
+
+/* Continuous sound track / guide lines just inside sprocket areas */
+.art-gallery-marquee::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.art-gallery-marquee::after {
+    content: '';
+    position: absolute;
+    bottom: 36px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    z-index: 4;
+    pointer-events: none;
 }
 
 .art-marquee-track {
     display: flex;
     width: max-content;
     animation: marquee 35s linear infinite;
+    position: relative;
+    padding: 2.8rem 0;
+}
+
+/* Moving Sprocket Holes on the Track (moves in sync with images) */
+.art-marquee-track::before,
+.art-marquee-track::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    z-index: 5;
+    background-image: repeating-linear-gradient(
+        to right,
+        var(--bg-color) 0px,
+        var(--bg-color) 12px,
+        transparent 12px,
+        transparent 28px
+    );
+    opacity: 0.95;
+    pointer-events: none;
+    transition: background-image 0.5s ease;
+}
+
+.art-marquee-track::before {
+    top: 12px;
+}
+
+.art-marquee-track::after {
+    bottom: 12px;
 }
 
 .art-marquee-track:hover {
@@ -368,8 +154,8 @@
 
 .art-marquee-group {
     display: flex;
-    gap: 1.4rem;
-    padding-right: 1.4rem;
+    gap: 1.8rem;
+    padding-right: 1.8rem;
 }
 
 @keyframes marquee {
@@ -381,17 +167,23 @@
     }
 }
 
-/* Gallery Item */
+/* Gallery Item (Individual Film Frame) */
 .gallery-item {
     position: relative;
     flex: 0 0 280px;
     height: 380px;
-    border-radius: 20px;
+    border-radius: 4px;
     overflow: hidden;
     cursor: zoom-in;
-    background-color: var(--clay);
+    background-color: #050505;
+    border: 14px solid #0b0b0b;
+    border-top: 28px solid #0b0b0b;
+    border-bottom: 28px solid #0b0b0b;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55), 
+                inset 0 0 12px rgba(0, 0, 0, 0.95);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease;
 }
 
 .gallery-item:active {
@@ -399,8 +191,40 @@
 }
 
 .gallery-item:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) rotate(-1.5deg) scale(1.03);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.75);
+    border-color: #030303;
+}
+
+/* Film Frame Labels */
+.film-brand-label {
+    position: absolute;
+    top: -22px;
+    left: 4px;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 8px;
+    font-weight: 700;
+    color: #e06031;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 6;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.9;
+}
+
+.film-frame-number {
+    position: absolute;
+    bottom: -22px;
+    right: 4px;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    color: #e06031;
+    z-index: 6;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.9;
 }
 
 /* Image State */
@@ -410,48 +234,60 @@
     object-fit: cover;
     display: block;
     pointer-events: none;
-
-    /* Default State: Full Color */
-    filter: grayscale(0%);
+    filter: grayscale(12%) contrast(1.05) brightness(0.95);
     transform: scale(1);
-
-    /* Smooth Transition */
     transition: filter 0.6s cubic-bezier(0.33, 1, 0.68, 1),
-        transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+                transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-/* Dark Overlay */
+/* 3D Glass Gloss Overlay for realistic reflections on the photos */
 .gallery-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25);
-    opacity: 1;
-    transition: opacity 0.6s ease;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.14) 0%,
+        rgba(255, 255, 255, 0.04) 25%,
+        transparent 45%,
+        rgba(0, 0, 0, 0.25) 85%,
+        rgba(0, 0, 0, 0.45) 100%
+    );
+    opacity: 0.85;
     z-index: 2;
+    transition: opacity 0.5s ease, background 0.5s ease;
+    pointer-events: none;
 }
 
 /* Hover Interaction */
 .gallery-item:hover .gallery-image {
-    transform: scale(1.06);
+    transform: scale(1.05);
+    filter: grayscale(0%) contrast(1.02) brightness(1.03);
 }
 
 .gallery-item:hover .gallery-overlay {
-    opacity: 0;
+    opacity: 0.95;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(255, 255, 255, 0.08) 20%,
+        transparent 35%,
+        rgba(0, 0, 0, 0.15) 75%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
 }
 
 /* Hover Content (Title) */
 .gallery-info {
     position: absolute;
-    bottom: 1.4rem;
-    left: 1.4rem;
-    z-index: 3;
+    bottom: 0.8rem;
+    left: 0.8rem;
+    z-index: 10;
     opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
-    transition-delay: 0.1s;
+    transform: translateY(8px);
+    transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .gallery-item:hover .gallery-info {
@@ -461,11 +297,11 @@
 
 .gallery-title {
     font-family: var(--font-display);
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: #fff;
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 /* ══ Lightbox ══════════════════════════════════════ */
