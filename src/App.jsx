@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import './App.css';
 import ChatButton from './components/ChatButton';
-import MusicPlayer from './components/MusicPlayer';
 import useSoundEffects from './components/useSoundEffects';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 const About = lazy(() => import('./components/About'));
@@ -54,7 +53,6 @@ function App() {
         <Router>
             <div className="App">
                 <ChatButton />
-                <MusicPlayer />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/project/banking" element={<BankingProjectPage />} />
