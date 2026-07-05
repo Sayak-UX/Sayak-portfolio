@@ -482,4 +482,50 @@
     .work-row-eyebrow {
         font-size: 0.65rem;
     }
+}
+
+/* ── Stamp Button Redesign (for Project 1) ─────────────────────── */
+.work-row-btn.stamp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem 1rem;
+    font-family: var(--font-body), sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #FFB800;
+    background: transparent;
+    border: 12px solid transparent;
+    border-image-source: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M 12 2 L 48 2 A 10 10 0 0 0 58 12 L 58 48 A 10 10 0 0 0 48 58 L 12 58 A 10 10 0 0 0 2 48 L 2 12 A 10 10 0 0 0 12 2 Z" fill="none" stroke="%23FFB800" stroke-width="3" /><path d="M 14 6 L 46 6 A 8 8 0 0 0 54 14 L 54 46 A 8 8 0 0 0 46 54 L 14 54 A 8 8 0 0 0 6 46 L 6 14 A 8 8 0 0 0 14 6 Z" fill="none" stroke="%23FFB800" stroke-width="1.2" /></svg>');
+    border-image-slice: 15 fill;
+    border-image-width: 12px;
+    border-image-repeat: stretch;
+    background-clip: padding-box;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .work-row-btn.stamp-btn {
+    color: #FFC107;
+    border-image-source: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M 12 2 L 48 2 A 10 10 0 0 0 58 12 L 58 48 A 10 10 0 0 0 48 58 L 12 58 A 10 10 0 0 0 2 48 L 2 12 A 10 10 0 0 0 12 2 Z" fill="none" stroke="%23FFC107" stroke-width="3" /><path d="M 14 6 L 46 6 A 8 8 0 0 0 54 14 L 54 46 A 8 8 0 0 0 46 54 L 14 54 A 8 8 0 0 0 6 46 L 6 14 A 8 8 0 0 0 14 6 Z" fill="none" stroke="%23FFC107" stroke-width="1.2" /></svg>');
+}
+
+/* Remove standard inner border since SVG includes it */
+.work-row-btn.stamp-btn::before {
+    display: none !important;
+}
+
+.work-row-btn.stamp-btn:hover {
+    background: rgba(255, 184, 0, 0.08);
+    transform: scale(1.03);
+    opacity: 1; /* override original hover opacity */
+}
+
+/* Override dark theme hover state from original */
+[data-theme='dark'] .work-row-btn.stamp-btn:hover {
+    background: rgba(255, 193, 7, 0.08);
 }
