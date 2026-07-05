@@ -149,8 +149,14 @@ const Works = () => {
             [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
         const mapping = {};
-        projects.forEach((project, index) => {
-            mapping[project.id] = shuffled[index % shuffled.length];
+        let activeIndex = 0;
+        projects.forEach((project) => {
+            if (project.buttonText === 'Full Story Coming Soon') {
+                mapping[project.id] = '/assets/group_92.png';
+            } else {
+                mapping[project.id] = shuffled[activeIndex % shuffled.length];
+                activeIndex++;
+            }
         });
         return mapping;
     }, []);
