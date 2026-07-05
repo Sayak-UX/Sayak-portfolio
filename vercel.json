@@ -1,7 +1,7 @@
 {
     "name": "sayak25",
     "rewrites": [
-        { "source": "/(.*)", "destination": "/" }
+        { "source": "/((?!assets/|api/).*)", "destination": "/" }
     ],
     "headers": [
         {

@@ -33,7 +33,7 @@ const About = () => {
                 <div className="about-visual">
                     <div className="profile-img-glow-wrapper">
                         <div className="profile-img-container">
-                            <img src="/assets/sayak png.png" alt="Sayak" className="about-image" loading="lazy" />
+                            <img src="/assets/sayak-profile.png" alt="Sayak" className="about-image" loading="lazy" />
                         </div>
                     </div>
                 </div>
