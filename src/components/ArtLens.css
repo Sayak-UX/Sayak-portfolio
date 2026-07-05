@@ -2,7 +2,7 @@
 
 .art-section {
     min-height: 100vh;
-    background-color: var(--bg-color);
+    background-color: transparent;
     position: relative;
     z-index: 1;
 }

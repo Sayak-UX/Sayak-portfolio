@@ -1,8 +1,18 @@
 .collab-section {
     background-color: var(--text-main);
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
     color: var(--bg-color);
     text-align: center;
     padding: 10rem 0;
+}
+
+[data-theme='dark'] .collab-section {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
 }
 
 .collab-title {

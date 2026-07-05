@@ -3,7 +3,7 @@
    ══════════════════════════════════════════ */
 
 .works-section {
-    background: var(--bg-color);
+    background: transparent;
 }
 
 .works-inner {
@@ -132,17 +132,26 @@
 
 /* ── Row Card ─────────────────────────────────────────────────── */
 .work-card-row {
+    --stamp-r: 6px;
+    --stamp-s: calc(3 * var(--stamp-r));
+    --card-bg: #ffffff;
+
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    overflow: hidden;
+    padding: 24px;
+    background: 
+      radial-gradient(var(--stamp-r), #0000 98%, var(--card-bg)) round 
+        calc(-1.5 * var(--stamp-r)) calc(-1.5 * var(--stamp-r)) / 
+        var(--stamp-s) var(--stamp-s),
+      linear-gradient(var(--card-bg) 0 0) no-repeat 50% / 
+        calc(100% - 3 * var(--stamp-r)) calc(100% - 3 * var(--stamp-r));
+    border: none;
+    border-radius: 0;
+    overflow: visible;
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+                filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.05));
 }
 
 @media (min-width: 1151px) {
@@ -153,19 +162,17 @@
 }
 
 [data-theme='dark'] .work-card-row {
-    background: #181818;
-    border-color: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    --card-bg: #181818;
+    filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.35));
 }
 
 .work-card-row:hover {
     transform: translateY(-5px);
-    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.08);
+    filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.08));
 }
 
 [data-theme='dark'] .work-card-row:hover {
-    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+    filter: drop-shadow(0 25px 55px rgba(0, 0, 0, 0.45));
 }
 
 /* ── Left Content column ────────────────────────────────────────── */
@@ -174,12 +181,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 3.5rem 3rem;
-    background: #ffffff;
+    padding: 1.5rem 1.5rem 1.5rem 1rem;
+    background: transparent;
 }
 
 [data-theme='dark'] .work-row-content {
-    background: #181818;
+    background: transparent;
 }
 
 .work-row-top-info {
@@ -325,6 +332,8 @@
     overflow: hidden;
     position: relative;
     background: #eaeaea;
+    margin-left: 24px;
+    border-radius: 16px;
 }
 
 [data-theme='dark'] .work-row-image-wrap {
@@ -427,13 +436,15 @@
     }
     
     .work-row-content {
-        padding: 3.5rem 2rem;
+        padding: 1rem 0.5rem 0;
         order: 2; /* Content on bottom */
     }
     
     .work-row-image-wrap {
         aspect-ratio: 16 / 10;
         order: 1; /* Image on top */
+        margin-left: 0;
+        margin-bottom: 20px;
     }
     
     .work-row-title {
@@ -452,7 +463,7 @@
 
 @media (max-width: 580px) {
     .work-row-content {
-        padding: 2.5rem 1.5rem;
+        padding: 1rem 0.2rem 0;
     }
     
     .work-row-title {

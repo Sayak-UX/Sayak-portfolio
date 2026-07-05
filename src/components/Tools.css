@@ -3,7 +3,7 @@
    ══════════════════════════════════════════ */
 
 .tools-section {
-    background: var(--bg-color);
+    background: transparent;
 }
 
 .tools-inner {

@@ -1,8 +1,8 @@
 /* Redesigned About Section - Premium UI/UX Aesthetic */
 .about-section {
     position: relative;
-    background-color: var(--bg-color);
-    transition: background-color 0.5s ease;
+    background-color: transparent;
+    transition: all 0.5s ease;
     overflow: hidden;
 }
 
@@ -12,14 +12,7 @@
     grid-template-columns: auto 1fr;
     gap: 4.5rem;
     align-items: center;
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 36px;
-    padding: 4rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    padding: 0;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     opacity: 0;
     transform: translateY(40px);
@@ -28,13 +21,6 @@
 .about-container.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-[data-theme='dark'] .about-container {
-    background: rgba(28, 28, 28, 0.45);
-    border-color: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Glowing background orb inside the card */
@@ -63,58 +49,52 @@
 
 .profile-img-glow-wrapper {
     position: relative;
-    padding: 6px;
-    border-radius: 38px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.02);
+    width: 216px;
+    height: 216px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    border: none;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Outlining the transparent PNG's scalloped contour using drop-shadow */
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
 }
 
 [data-theme='dark'] .profile-img-glow-wrapper {
-    border-color: rgba(255, 255, 255, 0.05);
+    filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.4));
 }
 
 .profile-img-container {
-    width: 180px;
-    height: 180px;
-    border-radius: 32px;
-    overflow: hidden;
-    background: var(--bg-color);
+    width: 100%;
+    height: 100%;
+    background: transparent;
     position: relative;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .about-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: grayscale(100%) brightness(0.95) contrast(1.05);
+    object-fit: contain;
     display: block;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Hover States for Profile Picture */
 .profile-img-glow-wrapper:hover {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--clay) 100%);
-    border-color: transparent;
-    box-shadow: 0 12px 40px rgba(93, 115, 126, 0.25);
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-6px) rotate(-2.5deg) scale(1.02);
+    filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.25));
 }
 
 [data-theme='dark'] .profile-img-glow-wrapper:hover {
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-}
-
-.profile-img-glow-wrapper:hover .profile-img-container {
-    border-radius: 28px;
+    filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.6));
 }
 
 .profile-img-glow-wrapper:hover .about-image {
-    filter: grayscale(0%) brightness(1.0) contrast(1.0);
-    transform: scale(1.05);
+    transform: scale(1.04);
+    filter: brightness(1.05) contrast(1.05);
 }
 
 /* About Text & Typography */
@@ -291,12 +271,14 @@
     }
 
     .profile-img-container {
-        width: 150px;
-        height: 150px;
+        width: 100%;
+        height: 100%;
     }
 
     .profile-img-glow-wrapper {
-        border-radius: 34px;
+        width: 168px;
+        height: 168px;
+        border-radius: 0;
     }
 
     .about-title {

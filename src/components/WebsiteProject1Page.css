@@ -1,7 +1,7 @@
 .website-project1-page {
     width: 100%;
     min-height: 100vh;
-    background-color: var(--bg-color);
+    background-color: transparent;
     position: relative;
     overflow-x: hidden;
 }
