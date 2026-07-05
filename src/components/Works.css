@@ -561,4 +561,21 @@
 
 .work-row-btn.stamp-image-btn:active .stamp-button-img {
     transform: scale(0.98);
+}
+
+/* Hide/show stamp image buttons based on theme */
+.stamp-light-only {
+    display: block;
+}
+
+.stamp-dark-only {
+    display: none;
+}
+
+[data-theme='dark'] .stamp-light-only {
+    display: none !important;
+}
+
+[data-theme='dark'] .stamp-dark-only {
+    display: block;
 }

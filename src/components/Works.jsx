@@ -208,20 +208,14 @@ const Works = () => {
                                                     {project.buttonText}
                                                 </div>
                                             ) : project.link.startsWith('http') ? (
-                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className={`work-row-btn ${project.id === 1 ? 'stamp-image-btn' : ''}`}>
-                                                    {project.id === 1 ? (
-                                                        <img src="/assets/stamp_t.png" alt="View Case Study" className="stamp-button-img" />
-                                                    ) : (
-                                                        project.buttonText
-                                                    )}
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="work-row-btn stamp-image-btn">
+                                                    <img src="/assets/yellow_barr.png" alt="View Case Study" className="stamp-button-img stamp-light-only" />
+                                                    <img src="/assets/green_barr.png" alt="View Case Study" className="stamp-button-img stamp-dark-only" />
                                                 </a>
                                             ) : (
-                                                <Link to={project.link} className={`work-row-btn ${project.id === 1 ? 'stamp-image-btn' : ''}`}>
-                                                    {project.id === 1 ? (
-                                                        <img src="/assets/stamp_t.png" alt="View Case Study" className="stamp-button-img" />
-                                                    ) : (
-                                                        project.buttonText
-                                                    )}
+                                                <Link to={project.link} className="work-row-btn stamp-image-btn">
+                                                    <img src="/assets/yellow_barr.png" alt="View Case Study" className="stamp-button-img stamp-light-only" />
+                                                    <img src="/assets/green_barr.png" alt="View Case Study" className="stamp-button-img stamp-dark-only" />
                                                 </Link>
                                             )}
                                         </div>
