@@ -92,17 +92,90 @@ const ArtLens = () => {
         openLightbox(index);
     };
 
+    const handleMouseMove = (e) => {
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const xc = rect.width / 2;
+        const yc = rect.height / 2;
+        const rotateX = -(y - yc) / 10;
+        const rotateY = (x - xc) / 10;
+        
+        card.style.setProperty('--rx', `${rotateX}deg`);
+        card.style.setProperty('--ry', `${rotateY}deg`);
+        card.style.setProperty('--mx', `${x}px`);
+        card.style.setProperty('--my', `${y}px`);
+    };
+
+    const handleMouseLeave = (e) => {
+        const card = e.currentTarget;
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+    };
+
     return (
         <>
             <section id="art" className="art-section section-padding">
                 <div className="art-container">
-                    <div className="art-header">
-                        <h2 className="section-title">
-                            <BlurText text="Art & Lens" delay={50} animateBy="words" tagName="span" />
-                        </h2>
-                        <p className="art-tagline">
-                            Exploring the world through creativity and photography.
-                        </p>
+                    <div className="art-intro-wrapper reveal-on-scroll">
+                        <div className="art-header-text">
+                            <span className="art-eyebrow">Creative Hobby</span>
+                            <h2 className="section-title">
+                                <BlurText text="Art & Lens" delay={50} animateBy="words" tagName="span" />
+                            </h2>
+                            <p className="art-tagline">
+                                Exploring the world through creativity and photography.
+                            </p>
+                            <p className="art-paragraph">
+                                Capturing moments at the intersection of digital precision and analog grain. Just as 35mm film preserved light on rolls of silver halide, modern memory cards act as vaults for our digital journeys—preserving frames of urban geometry, nature, and perspective.
+                            </p>
+                        </div>
+                        
+                        <div className="art-visual-container">
+                            <div className="art-card-3d-wrapper">
+                                <div 
+                                    className="film-memory-card"
+                                    onMouseMove={handleMouseMove}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    {/* Slider lock notch */}
+                                    <div className="card-lock-slider"></div>
+                                    
+                                    {/* Gold contact pins */}
+                                    <div className="card-pins">
+                                        <span className="pin"></span>
+                                        <span className="pin"></span>
+                                        <span className="pin"></span>
+                                        <span className="pin"></span>
+                                        <span className="pin"></span>
+                                        <span className="pin"></span>
+                                        <span className="pin"></span>
+                                        <span className="pin"></span>
+                                        <span className="pin"></span>
+                                    </div>
+
+                                    {/* Brand label */}
+                                    <div className="card-label">
+                                        <div className="label-brand">
+                                            <span className="brand-logo">SAYAK</span>
+                                            <span className="brand-type">FILM</span>
+                                        </div>
+                                        <div className="label-stripe"></div>
+                                        
+                                        <div className="label-info">
+                                            <div className="info-exposure">35mm</div>
+                                            <div className="info-capacity">64 GB</div>
+                                        </div>
+                                        <div className="label-subtext">36 EXP · ISO 400</div>
+                                        <div className="label-barcode"></div>
+                                    </div>
+                                    
+                                    {/* Gloss overlay sheen */}
+                                    <div className="card-gloss-sheen"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
