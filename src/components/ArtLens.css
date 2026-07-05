@@ -30,7 +30,7 @@
     letter-spacing: 0.02em;
 }
 
-/* Gallery — Horizontal Scroll Strip (Film Roll Style) */
+/* Gallery — Horizontal Scroll Strip (Postage Stamp Style) */
 .art-gallery-wrapper {
     position: relative;
     width: 100%;
@@ -51,7 +51,7 @@
     );
 }
 
-/* Glassy reflective reflection overlay for the entire film strip wrapper */
+/* Glassy reflective overlay for the entire postage stamp collection */
 .art-gallery-wrapper::after {
     content: '';
     position: absolute;
@@ -63,9 +63,9 @@
         115deg,
         rgba(255, 255, 255, 0) 0%,
         rgba(255, 255, 255, 0) 35%,
-        rgba(255, 255, 255, 0.05) 42%,
-        rgba(255, 255, 255, 0.12) 44%,
-        rgba(255, 255, 255, 0.05) 46%,
+        rgba(255, 255, 255, 0.04) 42%,
+        rgba(255, 255, 255, 0.08) 44%,
+        rgba(255, 255, 255, 0.04) 46%,
         rgba(255, 255, 255, 0) 53%,
         rgba(255, 255, 255, 0) 100%
     );
@@ -76,39 +76,14 @@
 .art-gallery-marquee {
     width: 100%;
     overflow: hidden;
-    background: linear-gradient(to bottom, #070707 0%, #151515 50%, #070707 100%);
-    box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.95), 
-                inset 0 -20px 40px rgba(0, 0, 0, 0.95),
-                0 15px 30px rgba(0, 0, 0, 0.35);
-    border-top: 1px solid #222;
-    border-bottom: 1px solid #222;
+    background: #0b0b0b; /* Dark backdrop that makes white stamp borders pop */
+    box-shadow: inset 0 12px 30px rgba(0, 0, 0, 0.95), 
+                inset 0 -12px 30px rgba(0, 0, 0, 0.95),
+                0 10px 25px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid #1c1c1c;
+    border-bottom: 1px solid #1c1c1c;
     padding: 0;
     position: relative;
-}
-
-/* Continuous sound track / guide lines just inside sprocket areas */
-.art-gallery-marquee::before {
-    content: '';
-    position: absolute;
-    top: 36px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.12);
-    z-index: 4;
-    pointer-events: none;
-}
-
-.art-gallery-marquee::after {
-    content: '';
-    position: absolute;
-    bottom: 36px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.12);
-    z-index: 4;
-    pointer-events: none;
 }
 
 .art-marquee-track {
@@ -116,36 +91,7 @@
     width: max-content;
     animation: marquee 35s linear infinite;
     position: relative;
-    padding: 2.8rem 0;
-}
-
-/* Moving Sprocket Holes on the Track (moves in sync with images) */
-.art-marquee-track::before,
-.art-marquee-track::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 14px;
-    z-index: 5;
-    background-image: repeating-linear-gradient(
-        to right,
-        var(--bg-color) 0px,
-        var(--bg-color) 12px,
-        transparent 12px,
-        transparent 28px
-    );
-    opacity: 0.95;
-    pointer-events: none;
-    transition: background-image 0.5s ease;
-}
-
-.art-marquee-track::before {
-    top: 12px;
-}
-
-.art-marquee-track::after {
-    bottom: 12px;
+    padding: 2.2rem 0; /* Padding around moving stamps */
 }
 
 .art-marquee-track:hover {
@@ -154,8 +100,8 @@
 
 .art-marquee-group {
     display: flex;
-    gap: 1.8rem;
-    padding-right: 1.8rem;
+    gap: 2rem;
+    padding-right: 2rem;
 }
 
 @keyframes marquee {
@@ -167,64 +113,120 @@
     }
 }
 
-/* Gallery Item (Individual Film Frame) */
+/* Gallery Item (Postage Stamp) */
 .gallery-item {
     position: relative;
     flex: 0 0 280px;
     height: 380px;
-    border-radius: 4px;
-    overflow: hidden;
+    border-radius: 0px; /* Stamp sheets are square cut */
     cursor: zoom-in;
-    background-color: #050505;
-    border: 14px solid #0b0b0b;
-    border-top: 28px solid #0b0b0b;
-    border-bottom: 28px solid #0b0b0b;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55), 
-                inset 0 0 12px rgba(0, 0, 0, 0.95);
+    background-color: #fcfbf7; /* Warm, vintage stamp paper texture */
+    padding: 16px;
+    border: 1px solid #e6e2d8;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 
+                inset 0 0 5px rgba(255, 255, 255, 0.8);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.35s ease;
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-item:active {
     cursor: zoom-in;
 }
 
+/* Pseudo-elements for the Scalloped (Perforated) Edges */
+/* Top & Bottom holes (circles matching marquee background color #0b0b0b) */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: -6px 0;
+    z-index: 12;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(circle at 50% 0%, #0b0b0b 6px, transparent 7px),
+        radial-gradient(circle at 50% 100%, #0b0b0b 6px, transparent 7px);
+    background-size: 20px 12px;
+    background-repeat: repeat-x;
+    background-position: top left, bottom left;
+}
+
+/* Left & Right holes */
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0 -6px;
+    z-index: 12;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(circle at 0% 50%, #0b0b0b 6px, transparent 7px),
+        radial-gradient(circle at 100% 50%, #0b0b0b 6px, transparent 7px);
+    background-size: 12px 20px;
+    background-repeat: repeat-y;
+    background-position: top left, top right;
+}
+
 .gallery-item:hover {
-    transform: translateY(-8px) rotate(-1.5deg) scale(1.03);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.75);
-    border-color: #030303;
+    transform: translateY(-10px) rotate(-1.5deg) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
 }
 
-/* Film Frame Labels */
-.film-brand-label {
+/* Stamp Branding and Values */
+.stamp-country {
     position: absolute;
-    top: -22px;
-    left: 4px;
-    font-family: 'Space Grotesk', monospace;
-    font-size: 8px;
-    font-weight: 700;
-    color: #e06031;
-    letter-spacing: 0.15em;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body);
+    font-size: 7.5px;
+    font-weight: 600;
+    color: rgba(90, 85, 75, 0.45);
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    z-index: 6;
+    z-index: 4;
     pointer-events: none;
     user-select: none;
-    opacity: 0.9;
 }
 
-.film-frame-number {
+.stamp-value {
     position: absolute;
-    bottom: -22px;
-    right: 4px;
-    font-family: 'Space Grotesk', monospace;
-    font-size: 9px;
+    bottom: 5px;
+    left: 14px;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
     font-weight: 700;
-    color: #e06031;
-    z-index: 6;
+    color: rgba(90, 85, 75, 0.5);
+    z-index: 4;
     pointer-events: none;
     user-select: none;
-    opacity: 0.9;
+}
+
+/* Inner frame enclosing photo with a dashed perforated look */
+.stamp-inner-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px dashed rgba(0, 0, 0, 0.14);
+    padding: 3px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Postmark (Cancellation Ink Overlay) */
+.postmark-overlay {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 110px;
+    height: 110px;
+    z-index: 10;
+    pointer-events: none;
+    transform: rotate(-12deg);
+    opacity: 0.8;
+}
+
+.postmark-svg {
+    width: 100%;
+    height: 100%;
 }
 
 /* Image State */
@@ -234,7 +236,7 @@
     object-fit: cover;
     display: block;
     pointer-events: none;
-    filter: grayscale(12%) contrast(1.05) brightness(0.95);
+    filter: sepia(8%) contrast(1.02) brightness(0.96);
     transform: scale(1);
     transition: filter 0.6s cubic-bezier(0.33, 1, 0.68, 1),
                 transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
@@ -249,11 +251,11 @@
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.14) 0%,
-        rgba(255, 255, 255, 0.04) 25%,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.03) 25%,
         transparent 45%,
-        rgba(0, 0, 0, 0.25) 85%,
-        rgba(0, 0, 0, 0.45) 100%
+        rgba(0, 0, 0, 0.15) 85%,
+        rgba(0, 0, 0, 0.35) 100%
     );
     opacity: 0.85;
     z-index: 2;
