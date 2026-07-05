@@ -208,12 +208,20 @@ const Works = () => {
                                                     {project.buttonText}
                                                 </div>
                                             ) : project.link.startsWith('http') ? (
-                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className={`work-row-btn ${project.id === 1 ? 'stamp-btn' : ''}`}>
-                                                    {project.buttonText}
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className={`work-row-btn ${project.id === 1 ? 'stamp-image-btn' : ''}`}>
+                                                    {project.id === 1 ? (
+                                                        <img src="/assets/stamp_t.png" alt="View Case Study" className="stamp-button-img" />
+                                                    ) : (
+                                                        project.buttonText
+                                                    )}
                                                 </a>
                                             ) : (
-                                                <Link to={project.link} className={`work-row-btn ${project.id === 1 ? 'stamp-btn' : ''}`}>
-                                                    {project.buttonText}
+                                                <Link to={project.link} className={`work-row-btn ${project.id === 1 ? 'stamp-image-btn' : ''}`}>
+                                                    {project.id === 1 ? (
+                                                        <img src="/assets/stamp_t.png" alt="View Case Study" className="stamp-button-img" />
+                                                    ) : (
+                                                        project.buttonText
+                                                    )}
                                                 </Link>
                                             )}
                                         </div>

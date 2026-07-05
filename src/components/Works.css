@@ -528,4 +528,37 @@
 /* Override dark theme hover state from original */
 [data-theme='dark'] .work-row-btn.stamp-btn:hover {
     background: rgba(255, 193, 7, 0.08);
+}
+
+/* ── Stamp PNG Image Button ────────────────────────────────────── */
+.work-row-btn.stamp-image-btn {
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.work-row-btn.stamp-image-btn::before,
+.work-row-btn.stamp-image-btn::after {
+    display: none !important;
+}
+
+.stamp-button-img {
+    height: 52px;
+    width: auto;
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                filter 0.25s ease;
+}
+
+.work-row-btn.stamp-image-btn:hover .stamp-button-img {
+    transform: scale(1.03) translateY(-1px);
+    filter: brightness(1.05);
+}
+
+.work-row-btn.stamp-image-btn:active .stamp-button-img {
+    transform: scale(0.98);
 }
