@@ -2,6 +2,28 @@
    Works Section — Projects Showcase
    ══════════════════════════════════════════ */
 
+/* Scroll Reveal entry styles */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.works-top-row.reveal-on-scroll {
+    transition-delay: 0.05s;
+}
+
+.works-group-header.reveal-on-scroll {
+    transition-delay: 0.1s;
+}
+
 .works-section {
     background: transparent;
 }
@@ -149,9 +171,20 @@
     border: none;
     border-radius: 0;
     overflow: visible;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
-                filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.05));
+    
+    /* Reveal and default rotation states */
+    opacity: 0;
+    transform: translateY(45px) rotate(var(--card-rotation, 0deg));
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.55s cubic-bezier(0.25, 1, 0.5, 1), 
+                filter 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform, filter;
+}
+
+.work-card-row.visible {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--card-rotation, 0deg));
 }
 
 @media (min-width: 1151px) {
@@ -167,12 +200,13 @@
 }
 
 .work-card-row:hover {
-    transform: translateY(-5px);
-    filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.08));
+    transform: translateY(-8px) rotate(0deg) scale(1.01);
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
+    z-index: 10;
 }
 
 [data-theme='dark'] .work-card-row:hover {
-    filter: drop-shadow(0 25px 55px rgba(0, 0, 0, 0.45));
+    filter: drop-shadow(0 35px 70px rgba(0, 0, 0, 0.55));
 }
 
 /* ── Left Content column ────────────────────────────────────────── */
@@ -259,13 +293,27 @@
     letter-spacing: 0.04em;
     color: var(--text-muted);
     text-transform: uppercase;
-    transition: all 0.25s ease;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.22s ease,
+                background-color 0.22s ease,
+                color 0.22s ease;
+}
+
+.work-row-tag:hover {
+    transform: translateY(-2px);
+    border-color: var(--text-main);
+    color: var(--text-main);
+    background: rgba(0, 0, 0, 0.06);
 }
 
 [data-theme='dark'] .work-row-tag {
     border-color: rgba(255, 255, 255, 0.22);
     background: rgba(255, 255, 255, 0.04);
     color: var(--text-muted);
+}
+
+[data-theme='dark'] .work-row-tag:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .work-row-btn {
@@ -344,6 +392,11 @@
     display: block;
     width: 100%;
     height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.work-row-image-container:hover {
+    opacity: 1 !important; /* Prevent global a:hover opacity fade bug */
 }
 
 .work-row-image {
@@ -352,7 +405,8 @@
     object-fit: cover;
     object-position: center top;
     display: block;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
 }
 
 /* Specific styling for Adaptive Traffic AI mockup to prevent text crop */
@@ -408,7 +462,7 @@
 }
 
 .work-card-row:hover .work-row-image {
-    transform: scale(1.04);
+    transform: scale(1.06) translateY(2px);
 }
 
 /* ── Row Badge ────────────────────────────────────────────────── */
@@ -550,17 +604,28 @@
     height: 62px;
     width: auto;
     display: block;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-                filter 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                filter 0.25s ease,
+                drop-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, filter;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+}
+
+[data-theme='dark'] .stamp-button-img {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .work-row-btn.stamp-image-btn:hover .stamp-button-img {
-    transform: scale(1.03) translateY(-1px);
-    filter: brightness(1.05);
+    transform: scale(1.04) rotate(-3deg) translateY(-2px);
+    filter: brightness(1.06) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.12));
+}
+
+[data-theme='dark'] .work-row-btn.stamp-image-btn:hover .stamp-button-img {
+    filter: brightness(1.06) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }
 
 .work-row-btn.stamp-image-btn:active .stamp-button-img {
-    transform: scale(0.98);
+    transform: scale(0.96) rotate(1deg);
 }
 
 /* Hide/show stamp image buttons based on theme */

@@ -1,9 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Works.css';
 
 const Works = () => {
     const [activeFilter, setActiveFilter] = useState('All');
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.05 }
+        );
+
+        if (sectionRef.current) {
+            // Find all reveal-on-scroll elements that aren't already visible
+            const elements = sectionRef.current.querySelectorAll('.reveal-on-scroll:not(.visible)');
+            elements.forEach((el) => observer.observe(el));
+        }
+
+        return () => observer.disconnect();
+    }, [activeFilter]);
 
     const filters = ['All', 'Apps', 'Website', 'Redesigns', 'Design with AI'];
 
@@ -128,11 +150,11 @@ const Works = () => {
     };
 
     return (
-        <section id="work" className="works-section section-padding">
+        <section id="work" className="works-section section-padding" ref={sectionRef}>
             <div className="container works-inner">
 
                 {/* ── Top header row ── */}
-                <div className="works-top-row">
+                <div className="works-top-row reveal-on-scroll">
                     <div className="works-title-group">
                         <span className="works-eyebrow">Selected Work</span>
                         <h2 className="works-main-title">Projects</h2>
@@ -157,7 +179,7 @@ const Works = () => {
                 {/* ── Category groups ── */}
                 {Object.entries(grouped).map(([groupKey, groupProjects]) => (
                     <div key={groupKey} className="works-group">
-                        <div className="works-group-header">
+                        <div className="works-group-header reveal-on-scroll">
                             <span className="works-group-eyebrow">Category</span>
                             <p className="works-group-label">{categoryLabels[groupKey]}</p>
                         </div>
@@ -167,8 +189,11 @@ const Works = () => {
                             {groupProjects.map((project, idx) => (
                                 <article 
                                     key={project.id} 
-                                    className={`work-card-row project-${project.id}`}
-                                    style={{ '--card-index': idx }}
+                                    className={`work-card-row project-${project.id} reveal-on-scroll`}
+                                    style={{ 
+                                        '--card-index': idx,
+                                        '--card-rotation': `${idx % 2 === 0 ? '-0.6deg' : '0.6deg'}`
+                                    }}
                                 >
                                     {/* ── Left Content column ── */}
                                     <div className="work-row-content">
