@@ -643,4 +643,12 @@
 
 [data-theme='dark'] .stamp-dark-only {
     display: block;
+}
+
+/* Styling for disabled stamp buttons */
+.work-row-btn.stamp-image-btn.disabled-stamp {
+    opacity: 0.45;
+    filter: grayscale(0.85) contrast(0.85);
+    cursor: not-allowed;
+    pointer-events: none;
 }

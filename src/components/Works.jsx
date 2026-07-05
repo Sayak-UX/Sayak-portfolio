@@ -134,6 +134,27 @@ const Works = () => {
         },
     ];
 
+    const projectStamps = React.useMemo(() => {
+        const stamps = [
+            '/assets/group_83.png',
+            '/assets/group_84.png',
+            '/assets/group_86.png',
+            '/assets/group_87.png',
+            '/assets/group_88.png',
+            '/assets/group_89.png'
+        ];
+        const shuffled = [...stamps];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        const mapping = {};
+        projects.forEach((project, index) => {
+            mapping[project.id] = shuffled[index % shuffled.length];
+        });
+        return mapping;
+    }, []);
+
     const filtered = projects.filter((p) => p.filter.includes(activeFilter));
 
     // Group by category for category headings
@@ -229,18 +250,22 @@ const Works = () => {
                                             </div>
                                             
                                             {project.buttonText === 'Full Story Coming Soon' ? (
-                                                <div className="work-row-btn disabled">
-                                                    {project.buttonText}
+                                                <div className="work-row-btn stamp-image-btn disabled-stamp" title="Full Story Coming Soon">
+                                                    {projectStamps[project.id] && (
+                                                        <img src={projectStamps[project.id]} alt="Full Story Coming Soon" className="stamp-button-img" />
+                                                    )}
                                                 </div>
                                             ) : project.link.startsWith('http') ? (
                                                 <a href={project.link} target="_blank" rel="noopener noreferrer" className="work-row-btn stamp-image-btn">
-                                                    <img src="/assets/yellow_barr.png" alt="View Case Study" className="stamp-button-img stamp-light-only" />
-                                                    <img src="/assets/green_barr.png" alt="View Case Study" className="stamp-button-img stamp-dark-only" />
+                                                    {projectStamps[project.id] && (
+                                                        <img src={projectStamps[project.id]} alt="View Case Study" className="stamp-button-img" />
+                                                    )}
                                                 </a>
                                             ) : (
                                                 <Link to={project.link} className="work-row-btn stamp-image-btn">
-                                                    <img src="/assets/yellow_barr.png" alt="View Case Study" className="stamp-button-img stamp-light-only" />
-                                                    <img src="/assets/green_barr.png" alt="View Case Study" className="stamp-button-img stamp-dark-only" />
+                                                    {projectStamps[project.id] && (
+                                                        <img src={projectStamps[project.id]} alt="View Case Study" className="stamp-button-img" />
+                                                    )}
                                                 </Link>
                                             )}
                                         </div>
