@@ -117,9 +117,6 @@ const ArtLens = () => {
                                         className="gallery-item"
                                         onClick={() => handleItemClick(index)}
                                     >
-                                        <span className="stamp-country">Sayak Art</span>
-                                        <span className="stamp-value">{(index + 1) * 10}c</span>
-                                        
                                         <div className="stamp-inner-frame">
                                             <div className="gallery-overlay" />
                                             <img
@@ -129,19 +126,9 @@ const ArtLens = () => {
                                                 loading="lazy"
                                                 draggable="false"
                                             />
-                                            <div className="gallery-info">
-                                                <h3 className="gallery-title">{item.title}</h3>
-                                            </div>
                                         </div>
-
-                                        <div className="postmark-overlay">
-                                            <svg viewBox="0 0 100 100" className="postmark-svg">
-                                                <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(0, 0, 0, 0.12)" strokeWidth="0.8" strokeDasharray="3 2" />
-                                                <circle cx="50" cy="50" r="28" fill="none" stroke="rgba(0, 0, 0, 0.12)" strokeWidth="0.8" />
-                                                <path d="M5 25 C 30 15, 70 35, 95 25 M5 45 C 30 35, 70 55, 95 45 M5 65 C 30 55, 70 75, 95 65" fill="none" stroke="rgba(0, 0, 0, 0.1)" strokeWidth="0.6" />
-                                                <text x="50" y="47" textAnchor="middle" fontSize="5.5" fontFamily="monospace" fill="rgba(0,0,0,0.18)" letterSpacing="0.4">SAYAK</text>
-                                                <text x="50" y="58" textAnchor="middle" fontSize="4.5" fontFamily="monospace" fill="rgba(0,0,0,0.18)">2026</text>
-                                            </svg>
+                                        <div className="gallery-info">
+                                            <h3 className="gallery-title">{item.title}</h3>
                                         </div>
                                     </div>
                                 ))}
@@ -154,9 +141,6 @@ const ArtLens = () => {
                                         className="gallery-item"
                                         onClick={() => handleItemClick(index)}
                                     >
-                                        <span className="stamp-country">Sayak Art</span>
-                                        <span className="stamp-value">{(index + 1) * 10}c</span>
-                                        
                                         <div className="stamp-inner-frame">
                                             <div className="gallery-overlay" />
                                             <img
@@ -166,19 +150,9 @@ const ArtLens = () => {
                                                 loading="lazy"
                                                 draggable="false"
                                             />
-                                            <div className="gallery-info">
-                                                <h3 className="gallery-title">{item.title}</h3>
-                                            </div>
                                         </div>
-
-                                        <div className="postmark-overlay">
-                                            <svg viewBox="0 0 100 100" className="postmark-svg">
-                                                <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(0, 0, 0, 0.12)" strokeWidth="0.8" strokeDasharray="3 2" />
-                                                <circle cx="50" cy="50" r="28" fill="none" stroke="rgba(0, 0, 0, 0.12)" strokeWidth="0.8" />
-                                                <path d="M5 25 C 30 15, 70 35, 95 25 M5 45 C 30 35, 70 55, 95 45 M5 65 C 30 55, 70 75, 95 65" fill="none" stroke="rgba(0, 0, 0, 0.1)" strokeWidth="0.6" />
-                                                <text x="50" y="47" textAnchor="middle" fontSize="5.5" fontFamily="monospace" fill="rgba(0,0,0,0.18)" letterSpacing="0.4">SAYAK</text>
-                                                <text x="50" y="58" textAnchor="middle" fontSize="4.5" fontFamily="monospace" fill="rgba(0,0,0,0.18)">2026</text>
-                                            </svg>
+                                        <div className="gallery-info">
+                                            <h3 className="gallery-title">{item.title}</h3>
                                         </div>
                                     </div>
                                 ))}

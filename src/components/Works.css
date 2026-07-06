@@ -81,7 +81,7 @@
     font-size: 0.75rem;
     font-weight: 500;
     padding: 0.45rem 1.1rem;
-    border-radius: 100px;
+    border-radius: 0;
     border: 1.5px solid rgba(0, 0, 0, 0.18);
     background: transparent;
     color: var(--text-muted);
@@ -288,7 +288,7 @@
     font-weight: 600;
     padding: 0.45rem 0.9rem;
     border: 1.5px solid rgba(0, 0, 0, 0.28);
-    border-radius: 4px;
+    border-radius: 0;
     background: rgba(0, 0, 0, 0.03);
     letter-spacing: 0.04em;
     color: var(--text-muted);
@@ -381,7 +381,7 @@
     position: relative;
     background: #eaeaea;
     margin-left: 24px;
-    border-radius: 16px;
+    border-radius: 0;
 }
 
 [data-theme='dark'] .work-row-image-wrap {
@@ -477,7 +477,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 6px 14px;
-    border-radius: 100px;
+    border-radius: 0;
     z-index: 2;
     pointer-events: none;
 }
