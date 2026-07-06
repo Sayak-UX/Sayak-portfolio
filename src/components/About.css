@@ -9,7 +9,9 @@
 .about-container {
     position: relative;
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
     gap: 4.5rem;
     align-items: center;
     padding: 0;
