@@ -1,4 +1,5 @@
 .collab-section {
+    position: relative;
     background-color: var(--text-main);
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
@@ -6,13 +7,42 @@
     background-size: 30px 30px;
     color: var(--bg-color);
     text-align: center;
-    padding: 10rem 0;
+    padding: 12rem 0;
+    overflow: hidden;
 }
 
 [data-theme='dark'] .collab-section {
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* Big Scallop Stamp Edge at Top */
+.collab-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    background-image: radial-gradient(circle at 50% 0%, var(--bg-color) 20px, transparent 21px);
+    background-size: 56px 32px;
+    background-repeat: repeat-x;
+    z-index: 10;
+}
+
+/* Big Scallop Stamp Edge at Bottom */
+.collab-section::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    background-image: radial-gradient(circle at 50% 100%, var(--bg-color) 20px, transparent 21px);
+    background-size: 56px 32px;
+    background-repeat: repeat-x;
+    z-index: 10;
 }
 
 .collab-title {
@@ -36,4 +66,4 @@
 .collab-cta:hover {
     border-color: var(--bg-color);
     opacity: 1;
-}
+}

@@ -5,11 +5,11 @@ const Banner = () => {
     return (
         <div className="banner-container">
             <a href="mailto:sayak.uxartisty@gmail.com" className="banner-content" style={{ textDecoration: 'none' }}>
-                <span className="banner-text">Hire Me</span>
-                <div className="banner-animation"></div>
+                <img src="/assets/group_93.png" alt="Hire Me" className="stamp-button-img" />
             </a>
         </div>
     );
 };
 
 export default Banner;
+

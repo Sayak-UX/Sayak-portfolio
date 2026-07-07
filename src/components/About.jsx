@@ -30,7 +30,13 @@ const About = () => {
                 {/* Glowing decorative background orb */}
                 <div className="about-glow-orb"></div>
 
-
+                <div className="about-visual">
+                    <div className="profile-img-glow-wrapper">
+                        <div className="profile-img-container">
+                            <img src="/assets/sayak-profile.png" alt="Sayak" className="about-image" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
                 
                 <div className="about-text">
                     <span className="about-eyebrow">Creative Mindset</span>

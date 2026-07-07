@@ -9,54 +9,45 @@
 }
 
 .banner-content {
-    position: relative;
-    padding: 10px 20px;
-    background: #2ecc71;
-    /* Green */
-    color: white;
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+    display: inline-block;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
 }
 
-.banner-content:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+.banner-content::before,
+.banner-content::after {
+    display: none !important;
 }
 
-.banner-text {
-    z-index: 2;
+.stamp-button-img {
+    height: 62px;
+    width: auto;
+    display: block;
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                filter 0.25s ease,
+                drop-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, filter;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
 }
 
-.banner-animation {
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
+[data-theme='dark'] .stamp-button-img {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.5);
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+.banner-content:hover .stamp-button-img {
+    transform: scale(1.04) rotate(-3deg) translateY(-2px);
+    filter: brightness(1.06) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.12));
 }
+
+[data-theme='dark'] .banner-content:hover .stamp-button-img {
+    filter: brightness(1.06) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+}
+
+.banner-content:active .stamp-button-img {
+    transform: scale(0.96) rotate(1deg);
+}
