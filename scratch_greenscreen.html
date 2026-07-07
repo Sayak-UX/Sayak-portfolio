@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #00ff00; /* Pure green screen background */
+            overflow: hidden;
+        }
+        #stamp-row {
+            position: relative;
+            width: 4000px;
+            height: 1030px;
+            background-color: #00ff00;
+        }
+        .gallery-item {
+            position: absolute;
+            top: 137px;
+            width: 369px;
+            height: 738px;
+            background-color: transparent;
+            /* Disable external drop-shadows to prevent dark green halos in chroma keying */
+            filter: none;
+        }
+        /* Stamp frame sprite overlay */
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('public/assets/photo_frame.png');
+            background-size: 600% 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+        
+        /* Inner frame enclosing photo */
+        .stamp-inner-frame {
+            position: absolute;
+            top: 7.9%;
+            left: 13.68%;
+            width: 72.64%;
+            height: 84.2%;
+            overflow: hidden;
+            z-index: 6;
+            background-color: #333;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            /* Apply original sepia and contrast filter */
+            filter: sepia(8%) contrast(1.02) brightness(0.96);
+        }
+
+        /* 3D Glass Gloss Overlay for realistic reflections on the photos */
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.03) 25%,
+                transparent 45%,
+                rgba(0, 0, 0, 0.15) 85%,
+                rgba(0, 0, 0, 0.35) 100%
+            );
+            opacity: 0.85;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Define positions for the stamps matching the upscaled coordinates of the screenshot */
+        .s0 { left: -86px; }
+        .s1 { left: 430px; }
+        .s2 { left: 945px; }
+        .s3 { left: 1476px; }
+        .s4 { left: 2000px; }
+        .s5 { left: 2492px; }
+        .s6 { left: 3004px; }
+        .s7 { left: 3519px; }
+        .s8 { left: 3898px; }
+
+        /* Frame positions */
+        .f0::after { background-position: 0% 0%; }
+        .f1::after { background-position: 20% 0%; }
+        .f2::after { background-position: 40% 0%; }
+        .f3::after { background-position: 60% 0%; }
+        .f4::after { background-position: 80% 0%; }
+        .f5::after { background-position: 100% 0%; }
+    </style>
+</head>
+<body>
+    <div id="stamp-row">
+        <!-- Stamp 0: Green parrot (cut off left, frame 4) -->
+        <div class="gallery-item s0 f4">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-6.jpeg" class="gallery-image" />
+            </div>
+        </div>
+        <!-- Stamp 1: Crane (frame 0) -->
+        <div class="gallery-item s1 f0">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-1.jpeg" class="gallery-image" />
+            </div>
+        </div>
+        <!-- Stamp 2: Sunset (frame 1) -->
+        <div class="gallery-item s2 f1">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-2.jpeg" class="gallery-image" />
+            </div>
+        </div>
+        <!-- Stamp 3: Skylight (frame 0) -->
+        <div class="gallery-item s3 f0">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-8.jpeg" class="gallery-image" />
+            </div>
+        </div>
+        <!-- Stamp 4: Turquoise parrot (frame 3) -->
+        <div class="gallery-item s4 f3">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-5.jpeg" class="gallery-image" />
+            </div>
+        </div>
+        <!-- Stamp 5: Snake (frame 2) -->
+        <div class="gallery-item s5 f2">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-4.jpeg" class="gallery-image" />
+            </div>
+        </div>
+        <!-- Stamp 6: Pink flower (frame 5) -->
+        <div class="gallery-item s6 f5">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-7.jpeg" class="gallery-image" />
+            </div>
+        </div>
+        <!-- Stamp 7: Green parrot (frame 4) -->
+        <div class="gallery-item s7 f4">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-6.jpeg" class="gallery-image" />
+            </div>
+        </div>
+        <!-- Stamp 8: Crane (cut off right, frame 0) -->
+        <div class="gallery-item s8 f0">
+            <div class="stamp-inner-frame">
+                <div class="gallery-overlay"></div>
+                <img src="public/assets/photography/gallery-1.jpeg" class="gallery-image" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
