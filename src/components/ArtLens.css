@@ -111,8 +111,8 @@
 /* Gallery Item (Postage Stamp Frame) */
 .gallery-item {
     position: relative;
-    flex: 0 0 190px;
-    height: 380px;
+    flex: 0 0 240px;
+    height: 480px;
     border-radius: 0px;
     cursor: zoom-in;
     background-color: transparent;
@@ -120,6 +120,7 @@
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                 filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1; /* Establish stacking context to layer photo under the frame */
 }
 
 /* Staggered organic tilts for cards */
@@ -168,7 +169,7 @@
 /* Inner frame enclosing photo (fits inside the transparent window of the PNG frame) */
 .stamp-inner-frame {
     position: absolute;
-    top: 12.22%;
+    top: 12.75%;
     left: 8.79%;
     width: 81.32%;
     height: 68.89%;
@@ -366,8 +367,8 @@
 /* Responsive */
 @media (max-width: 768px) {
     .gallery-item {
-        flex: 0 0 150px;
-        height: 300px;
+        flex: 0 0 180px;
+        height: 360px;
     }
 
     .art-header {
@@ -377,7 +378,7 @@
 
 @media (max-width: 480px) {
     .gallery-item {
-        flex: 0 0 125px;
-        height: 250px;
+        flex: 0 0 150px;
+        height: 300px;
     }
 }
