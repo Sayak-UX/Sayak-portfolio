@@ -315,15 +315,8 @@ const Works = () => {
     }, []);
 
     const [activeIndex, setActiveIndex] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
+    const isMobile = false;
     const containerRef = useRef(null);
-
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 1150);
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
 
     const filtered = projects.filter((p) => p.filter.includes(activeFilter));
 
