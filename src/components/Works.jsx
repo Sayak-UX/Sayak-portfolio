@@ -314,6 +314,7 @@ const Works = () => {
         return mapping;
     }, []);
 
+
     const [activeIndex, setActiveIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const containerRef = useRef(null);
@@ -349,11 +350,42 @@ const Works = () => {
         }
     });
 
-    // Reset active index when filter changes
+    // Reset active index when filter changes, and reset mobile scroll container position
     useEffect(() => {
         setActiveIndex(0);
-    }, [activeFilter]);
+        if (isMobile && containerRef.current) {
+            const container = containerRef.current.querySelector('.project-stack');
+            if (container) {
+                container.scrollLeft = 0;
+            }
+        }
+    }, [activeFilter, isMobile]);
 
+    // Handle scroll on mobile to update active card index based on center alignment
+    const handleMobileScroll = (e) => {
+        if (!isMobile) return;
+        const container = e.currentTarget;
+        const cards = container.children;
+        if (!cards.length) return;
+        
+        const containerCenter = container.getBoundingClientRect().left + container.clientWidth / 2;
+        let closestIdx = 0;
+        let minDiff = Infinity;
+        
+        for (let i = 0; i < cards.length; i++) {
+            const rect = cards[i].getBoundingClientRect();
+            const cardCenter = rect.left + rect.width / 2;
+            const diff = Math.abs(cardCenter - containerCenter);
+            if (diff < minDiff) {
+                minDiff = diff;
+                closestIdx = i;
+            }
+        }
+        
+        if (closestIdx !== activeIndex) {
+            setActiveIndex(closestIdx);
+        }
+    };
 
     return (
         <section 
@@ -392,7 +424,10 @@ const Works = () => {
                     </div>
 
                     {/* Stacking Project cards deck */}
-                    <div className="project-stack">
+                    <div 
+                        className="project-stack"
+                        onScroll={handleMobileScroll}
+                    >
                         {filtered.map((project, idx) => (
                             <ProjectCardStackItem 
                                 key={project.id}
@@ -406,6 +441,31 @@ const Works = () => {
                             />
                         ))}
                     </div>
+
+                    {/* Mobile Pagination Dots */}
+                    {isMobile && filtered.length > 1 && (
+                        <div className="mobile-work-dots">
+                            {filtered.map((_, idx) => (
+                                <span 
+                                    key={idx} 
+                                    className={`mobile-work-dot ${idx === activeIndex ? 'active' : ''}`}
+                                    onClick={() => {
+                                        const container = containerRef.current?.querySelector('.project-stack');
+                                        if (container) {
+                                            const cards = container.children;
+                                            if (cards[idx]) {
+                                                cards[idx].scrollIntoView({ 
+                                                    behavior: 'smooth', 
+                                                    inline: 'center', 
+                                                    block: 'nearest' 
+                                                });
+                                            }
+                                        }
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    )}
 
                 </div>
             </div>
