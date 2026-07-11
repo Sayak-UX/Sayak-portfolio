@@ -579,17 +579,16 @@
         order: 1 !important;
         margin-left: 0 !important;
         margin-bottom: 10px !important;
-        height: 150px !important;
+        height: auto !important;
         width: 100% !important;
         flex: none !important;
-        aspect-ratio: auto !important;
     }
     .work-row-image-container {
         height: 100% !important;
     }
     .work-row-image {
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
     }
     .project-1 .work-row-image,
     .project-2 .work-row-image,
@@ -597,7 +596,7 @@
     .project-4 .work-row-image,
     .project-5 .work-row-image,
     .project-6 .work-row-image {
-        object-fit: cover !important;
+        object-fit: contain !important;
     }
     .work-row-content {
         order: 2 !important;
