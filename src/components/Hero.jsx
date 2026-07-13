@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Plasma from './Plasma';
 import Grainient from './Grainient';
+import WatercolorCanvas from './WatercolorCanvas';
 import './Hero.css';
 
 const Typewriter = ({ text, speed = 100, delay = 0 }) => {
@@ -99,6 +100,7 @@ const Hero = () => {
 
     return (
         <section className="hero-section">
+            <WatercolorCanvas />
             <div className="hero-content container" ref={titleRef}>
                 <h2 className="hero-subtitle reveal-text" style={{ transitionDelay: '0.1s' }}>From Canvas to Interfaces</h2>
                 <h1 className="hero-title reveal-text" style={{ transitionDelay: '0.3s' }}>

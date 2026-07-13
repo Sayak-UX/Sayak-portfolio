@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { playChime } from './SoundEngine';
 import './Navbar.css';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [theme, setTheme] = useState('light');
+    const [logoClicks, setLogoClicks] = useState(0);
+    const [logoPop, setLogoPop] = useState(false);
+
+    const handleLogoClick = () => {
+        setLogoPop(true);
+        setTimeout(() => setLogoPop(false), 250);
+
+        setLogoClicks((prev) => {
+            const next = prev + 1;
+            if (next >= 5) {
+                playChime();
+                window.dispatchEvent(new CustomEvent('activate-watercolor-paint'));
+                return 0; // Reset count
+            }
+            return next;
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -113,7 +133,7 @@ const Navbar = () => {
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
             <div className="container navbar-container">
-                <div className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <div className={`navbar-logo ${logoPop ? 'logo-pop' : ''}`} onClick={handleLogoClick}>
                     <img src="/assets/logo.svg" alt="Sayak" />
                 </div>
 
