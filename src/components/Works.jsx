@@ -156,7 +156,6 @@ const ProjectCardStackItem = ({ project, idx, total, scrollYProgress, activeInde
 
 
 const Works = () => {
-    const [activeFilter, setActiveFilter] = useState('All');
     const sectionRef = useRef(null);
 
     useEffect(() => {
@@ -178,9 +177,7 @@ const Works = () => {
         }
 
         return () => observer.disconnect();
-    }, [activeFilter]);
-
-    const filters = ['All', 'Apps', 'Website', 'Redesigns', 'Design with AI'];
+    }, []);
 
     const projects = [
         {
@@ -318,7 +315,7 @@ const Works = () => {
     const isMobile = false;
     const containerRef = useRef(null);
 
-    const filtered = projects.filter((p) => p.filter.includes(activeFilter));
+    const filtered = projects;
 
     // Track scroll progress of the works section
     const { scrollYProgress } = useScroll({
@@ -342,11 +339,6 @@ const Works = () => {
         }
     });
 
-    // Reset active index when filter changes
-    useEffect(() => {
-        setActiveIndex(0);
-    }, [activeFilter]);
-
 
     return (
         <section 
@@ -366,21 +358,6 @@ const Works = () => {
                         <div className="works-title-group">
                             <span className="works-eyebrow">Selected Work</span>
                             <h2 className="works-main-title">Projects</h2>
-                        </div>
-
-                        {/* Filter pills */}
-                        <div className="works-filters" role="tablist">
-                            {filters.map((f) => (
-                                <button
-                                    key={f}
-                                    role="tab"
-                                    aria-selected={activeFilter === f}
-                                    className={`works-filter-btn ${activeFilter === f ? 'active' : ''}`}
-                                    onClick={() => setActiveFilter(f)}
-                                >
-                                    {f}
-                                </button>
-                            ))}
                         </div>
                     </div>
 

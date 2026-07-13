@@ -7,12 +7,12 @@ const Education = () => {
     const educationData = [
         {
             year: '2024 – 2026',
-            degree: 'Master of Design',
+            degree: 'Master in User Experience Design',
             institution: 'Lovely Professional University, Phagwara'
         },
         {
             year: '2019 – 2023',
-            degree: 'Bachelor of Design',
+            degree: 'Bachelor in User Experience Design',
             institution: 'DIT University, Dehradun'
         }
     ];
