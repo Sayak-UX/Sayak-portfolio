@@ -184,7 +184,7 @@ const Works = () => {
             id: 1,
             title: 'One app One banking',
             titleHighlight: 'One banking',
-            category: 'Mobile',
+            category: 'Mobile Application',
             subcategory: 'UI Exploration',
             eyebrow: '/ IOS & ANDROID',
             tags: ['USER SURVEY ANALYSIS', 'PERSONA', 'DESIGN SYSTEM', 'UX INPUTS', 'BETTER ACCESSIBILITY'],
@@ -194,14 +194,14 @@ const Works = () => {
             description: 'A modern fintech mobile banking experience focused on clarity, trust, and seamless transactions — from onboarding to daily spend tracking.',
             image: '/assets/banking_app26_cover.png',
             link: '/project/banking',
-            filter: ['All', 'Apps'],
+            filter: ['All', 'Mobile Application'],
             buttonText: 'View Case Study'
         },
         {
             id: 2,
             title: 'Air India App Redesign',
             titleHighlight: 'Redesign',
-            category: 'Mobile',
+            category: 'Mobile Application',
             subcategory: 'UX Audit',
             eyebrow: '/ IOS & ANDROID',
             tags: ['UX AUDIT', 'ACCESSIBILITY', 'REDESIGN'],
@@ -211,14 +211,14 @@ const Works = () => {
             description: 'A comprehensive **UX audit and redesign** of the Air India mobile app — streamlining check-ins, booking flows, and loyalty programs to resolve core friction points for **over 4 million travellers**.',
             image: '/assets/airindia_app26_cover.png',
             link: '/project/air-india',
-            filter: ['All', 'Apps', 'Redesigns'],
+            filter: ['All', 'Mobile Application'],
             buttonText: 'View Case Study'
         },
         {
             id: 3,
             title: 'Adaptive Traffic AI',
             titleHighlight: 'Traffic AI',
-            category: 'Web',
+            category: 'AI',
             subcategory: 'AI & UX Case Study',
             eyebrow: '/ AI & UX RESEARCH',
             tags: ['AI DASHBOARD', 'EXPLAINABLE AI', 'UX RESEARCH'],
@@ -228,14 +228,14 @@ const Works = () => {
             description: 'Co-designing an explainable AI-driven dashboard and real-time commuter framework for intelligent urban mobility and trust.',
             image: '/assets/ai_traffic_monitoring26_cover.png',
             link: 'https://smartflow-traffic-ai.vercel.app/',
-            filter: ['All', 'Website', 'Design with AI'],
+            filter: ['All', 'AI'],
             buttonText: 'View Case Study'
         },
         {
             id: 4,
             title: 'Govt Portal Website Redesign',
             titleHighlight: 'Website Redesign',
-            category: 'Web',
+            category: 'Web App',
             subcategory: 'UX Audit',
             eyebrow: '/ ACCESSIBILITY & WEB',
             tags: ['ACCESSIBILITY', 'HEURISTIC EVALUATION', 'UX AUDIT'],
@@ -245,14 +245,14 @@ const Works = () => {
             description: 'A heuristic-driven redesign of a government digital portal to improve usability, accessibility standards, and citizen trust across diverse demographics.',
             image: '/assets/govtweb26_cover.png',
             link: '/project/website1',
-            filter: ['All', 'Website', 'Redesigns'],
+            filter: ['All', 'Web App'],
             buttonText: 'View Case Study'
         },
         {
             id: 5,
             title: 'Solar Service Website Design',
             titleHighlight: 'Solar Service',
-            category: 'Web',
+            category: 'Web App',
             subcategory: 'Visual Design',
             eyebrow: '/ BRANDING & WEB',
             tags: ['USER RESEARCH & SURVEY', 'ETHNOGRAPHY RESEARCH', 'SCAMPER', 'WEBSITE DESIGN'],
@@ -262,14 +262,14 @@ const Works = () => {
             description: 'A bold, brand-forward web design for a solar energy company — exploring identity systems, typography, and strong layout principles.',
             image: '/assets/solarweb26_cover.png',
             link: '/project/website2',
-            filter: ['All', 'Website'],
+            filter: ['All', 'Web App'],
             buttonText: 'View Case Study'
         },
         {
             id: 6,
             title: 'Music App',
             titleHighlight: 'Music App',
-            category: 'Mobile',
+            category: 'Mobile Application',
             subcategory: 'UI Exploration',
             eyebrow: '/ IOS & ANDROID',
             tags: ['USER CENTRIC APPROACH', 'COLOR PSYCHOLOGY'],
@@ -279,7 +279,7 @@ const Works = () => {
             description: 'An immersive and interactive music application designed for clean aesthetics, seamless transitions, and personalized audio spaces.',
             image: '/assets/musicapp26_cover.png',
             link: '/project/music',
-            filter: ['All', 'Apps'],
+            filter: ['All', 'Mobile Application'],
             buttonText: 'Full Story Coming Soon'
         },
     ];
@@ -311,11 +311,22 @@ const Works = () => {
         return mapping;
     }, []);
 
+    const [activeFilter, setActiveFilter] = useState('All');
     const [activeIndex, setActiveIndex] = useState(0);
     const isMobile = false;
     const containerRef = useRef(null);
 
-    const filtered = projects;
+    const filterCategories = ['All', 'AI', 'Mobile Application', 'Web App'];
+
+    const filtered = projects.filter((project) => {
+        if (activeFilter === 'All') return true;
+        return project.category === activeFilter;
+    });
+
+    const handleFilterChange = (filterName) => {
+        setActiveFilter(filterName);
+        setActiveIndex(0);
+    };
 
     // Track scroll progress of the works section
     const { scrollYProgress } = useScroll({
@@ -339,14 +350,13 @@ const Works = () => {
         }
     });
 
-
     return (
         <section 
             id="work" 
             className="works-section" 
             ref={containerRef}
             style={{ 
-                '--scroll-height': isMobile ? 'auto' : `calc(100vh + ${(filtered.length - 1) * 90}vh)`
+                '--scroll-height': isMobile ? 'auto' : `calc(100vh + ${Math.max(0, filtered.length - 1) * 90}vh)`
             }}
         >
             {/* Sticky Stage wrapper */}
@@ -358,6 +368,20 @@ const Works = () => {
                         <div className="works-title-group">
                             <span className="works-eyebrow">Selected Work</span>
                             <h2 className="works-main-title">Projects</h2>
+                        </div>
+
+                        {/* Right Corner Project Filter Buttons */}
+                        <div className="works-filters">
+                            {filterCategories.map((filterName) => (
+                                <button
+                                    key={filterName}
+                                    type="button"
+                                    className={`works-filter-btn ${activeFilter === filterName ? 'active' : ''}`}
+                                    onClick={() => handleFilterChange(filterName)}
+                                >
+                                    {filterName}
+                                </button>
+                            ))}
                         </div>
                     </div>
 
