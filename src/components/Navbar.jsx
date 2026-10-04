@@ -141,9 +141,7 @@ const Navbar = () => {
                     <button onClick={() => scrollToSection('about')}>About</button>
                     <button onClick={() => scrollToSection('work')}>My works</button>
 
-                    <a href="/assets/Sayak_Sarkar_UX_cv.pdf" download="Sayak Sarkar UX cv.pdf" className="btn-download-cv">
-                        Resume
-                    </a>
+
 
                     <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
                         <svg className="theme-paint-bucket" viewBox="0 0 24 24" width="20" height="20" fill="none">

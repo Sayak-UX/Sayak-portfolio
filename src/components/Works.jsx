@@ -218,7 +218,7 @@ const Works = () => {
             id: 3,
             title: 'Adaptive Traffic AI',
             titleHighlight: 'Traffic AI',
-            category: 'AI',
+            category: 'Design with AI',
             subcategory: 'AI & UX Case Study',
             eyebrow: '/ AI & UX RESEARCH',
             tags: ['AI DASHBOARD', 'EXPLAINABLE AI', 'UX RESEARCH'],
@@ -228,7 +228,7 @@ const Works = () => {
             description: 'Co-designing an explainable AI-driven dashboard and real-time commuter framework for intelligent urban mobility and trust.',
             image: '/assets/ai_traffic_monitoring26_cover.png',
             link: 'https://smartflow-traffic-ai.vercel.app/',
-            filter: ['All', 'AI'],
+            filter: ['All', 'Design with AI'],
             buttonText: 'View Case Study'
         },
         {
@@ -316,7 +316,7 @@ const Works = () => {
     const isMobile = false;
     const containerRef = useRef(null);
 
-    const filterCategories = ['All', 'AI', 'Mobile Application', 'Web App'];
+    const filterCategories = ['All', 'Design with AI', 'Mobile Application', 'Web App'];
 
     const filtered = projects.filter((project) => {
         if (activeFilter === 'All') return true;

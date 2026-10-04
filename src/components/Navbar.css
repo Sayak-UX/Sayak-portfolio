@@ -119,24 +119,6 @@
     width: 100%;
 }
 
-.btn-download-cv {
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-}
-
-.btn-download-cv:hover {
-    background-color: #fff;
-    color: #000;
-    opacity: 1;
-}
 
 .theme-toggle {
     display: flex;
